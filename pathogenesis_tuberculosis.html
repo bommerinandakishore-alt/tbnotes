@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pathogenesis of Tuberculosis – 10 Marks Answer</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf6ef;
+    --ink: #1a1208;
+    --rust: #8b3a1a;
+    --rust-light: #c4581f;
+    --gold: #b8860b;
+    --gold-light: #d4a843;
+    --sage: #4a6741;
+    --sage-light: #6d9b64;
+    --slate: #2c3e50;
+    --muted: #7a6a55;
+    --border: #d4c4a8;
+    --highlight: #fff3cd;
+    --box-bg: #f5ede0;
+    --red-bg: #fdf0ec;
+    --green-bg: #edf5ec;
+    --blue-bg: #edf0f8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Crimson Pro', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 36px 80px;
+  }
+
+  /* ── HEADER ── */
+  .doc-header {
+    border-top: 4px solid var(--rust);
+    border-bottom: 2px solid var(--border);
+    padding: 28px 0 22px;
+    margin-bottom: 36px;
+    position: relative;
+  }
+  .doc-header::before {
+    content: "RESPIRATORY MEDICINE · EXAMINATION ANSWER";
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .doc-header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--rust);
+    line-height: 1.25;
+  }
+  .doc-header .meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    background: var(--rust);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+  .badge.gold { background: var(--gold); }
+  .badge.sage { background: var(--sage); }
+
+  /* ── SECTIONS ── */
+  h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--rust);
+    background: var(--box-bg);
+    border-left: 4px solid var(--rust);
+    padding: 8px 14px;
+    margin: 32px 0 14px;
+  }
+  h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--slate);
+    margin: 20px 0 8px;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 4px;
+  }
+
+  p { margin-bottom: 10px; }
+
+  /* ── BULLET LISTS ── */
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 8px 0 14px;
+  }
+  ul li {
+    padding: 4px 0 4px 22px;
+    position: relative;
+  }
+  ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--rust-light);
+    font-size: 13px;
+    top: 6px;
+  }
+  ul.sub {
+    margin-left: 20px;
+  }
+  ul.sub li::before {
+    content: "–";
+    color: var(--gold);
+  }
+
+  /* ── TABLES ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 18px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th {
+    background: var(--rust);
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 9px 13px;
+    text-align: left;
+  }
+  td {
+    padding: 8px 13px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: var(--box-bg); }
+  tr:hover td { background: #f0e6d4; }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-left: 4px solid var(--gold);
+    background: var(--highlight);
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 15.5px;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout strong { color: var(--rust); }
+
+  .box-red   { background: var(--red-bg);   border-left: 4px solid var(--rust); }
+  .box-green { background: var(--green-bg); border-left: 4px solid var(--sage); }
+  .box-blue  { background: var(--blue-bg);  border-left: 4px solid var(--slate); }
+
+  /* ── FLOWCHART ── */
+  .flow {
+    margin: 20px auto;
+    max-width: 700px;
+    font-family: 'Outfit', sans-serif;
+  }
+  .flow-step {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 0;
+  }
+  .flow-box {
+    flex: 1;
+    background: white;
+    border: 2px solid var(--rust);
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .flow-box .sub-text {
+    font-weight: 400;
+    font-size: 12.5px;
+    color: var(--muted);
+    display: block;
+    margin-top: 3px;
+  }
+  .flow-box.highlight { background: var(--rust); color: white; border-color: var(--rust); }
+  .flow-box.highlight .sub-text { color: #f5d0bb; }
+  .flow-box.outcome-good { background: var(--green-bg); border-color: var(--sage); }
+  .flow-box.outcome-bad  { background: var(--red-bg);   border-color: var(--rust); }
+
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0;
+    font-size: 20px;
+    color: var(--rust-light);
+  }
+  .flow-branch {
+    display: flex;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .flow-branch-box {
+    flex: 1;
+    border-radius: 6px;
+    border: 2px solid;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+  }
+  .flow-branch-box.left  { border-color: var(--sage); background: var(--green-bg); }
+  .flow-branch-box.right { border-color: var(--rust); background: var(--red-bg); }
+  .flow-branch-box .label { font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .flow-branch-box.left .label  { color: var(--sage); }
+  .flow-branch-box.right .label { color: var(--rust); }
+
+  /* ── GRANULOMA DIAGRAM ── */
+  .diagram-wrap {
+    margin: 24px auto;
+    max-width: 600px;
+    text-align: center;
+  }
+  .diagram-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  svg text { font-family: 'Outfit', sans-serif; }
+
+  /* ── NUMBERED STEPS ── */
+  .steps { counter-reset: step; margin: 12px 0; }
+  .step {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    background: var(--rust);
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-content strong { color: var(--rust); font-style: italic; }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    margin-top: 52px;
+    border-top: 2px solid var(--border);
+    padding-top: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { padding: 20px; font-size: 13px; }
+    h2 { font-size: 11px; }
+    .flow-box, td, th { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <h1>Pathogenesis of Tuberculosis</h1>
+  <div class="meta">
+    <span class="badge">10 Marks</span>
+    <span class="badge gold">~1000 Words</span>
+    <span class="badge sage">Respiratory Medicine</span>
+  </div>
+</div>
+
+<!-- INTRODUCTION -->
+<h2>Introduction</h2>
+<p>Tuberculosis (TB) is a chronic infectious disease caused by <em>Mycobacterium tuberculosis</em> (Mtb), an aerobic, non-spore-forming, acid-fast bacillus. The outcome of infection — whether the host contains or succumbs to the bacillus — depends critically on the <strong>interplay between mycobacterial virulence and host immunity</strong>. The pathogenesis involves a sequence of precisely orchestrated steps spanning innate and adaptive immune responses.</p>
+
+<div class="callout">
+  <strong>Key Principle:</strong> The development of anti-mycobacterial T-cell mediated immunity (specifically Th1 responses) is the single most important determinant of outcome in primary tuberculosis.
+</div>
+
+<!-- STEP-BY-STEP PATHOGENESIS -->
+<h2>Step-by-Step Pathogenesis</h2>
+
+<div class="steps">
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Inhalation & Initial Deposition</strong>
+      <ul>
+        <li>Infection begins with inhalation of <em>droplet nuclei</em> (1–5 µm diameter) containing 1–5 viable bacilli</li>
+        <li>A single bout of cough produces ~3,000 droplet nuclei; a sneeze up to 1 million</li>
+        <li>Only bacilli that reach the <strong>terminal alveoli</strong> of the mid-lower lung (well-aerated zones) establish infection</li>
+        <li>Infectious dose: as few as <strong>1–10 bacilli</strong> can initiate infection</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Phagocytosis by Alveolar Macrophages</strong>
+      <ul>
+        <li>Bacilli are engulfed by alveolar macrophages (AMs) via pattern recognition receptors:
+          <ul class="sub">
+            <li>Mannose receptor (binds lipoarabinomannan on Mtb)</li>
+            <li>Complement receptor 3 (CR3 / CD11b)</li>
+            <li>Toll-like receptors (TLR-2, TLR-4, TLR-9)</li>
+            <li>DC-SIGN, Dectin-1</li>
+          </ul>
+        </li>
+        <li>Phagocytosis forms a <strong>phagosome</strong> containing the bacilli</li>
+        <li>Non-opsonised bacilli are taken up less efficiently than opsonised ones</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>Evasion of Intracellular Killing — The Critical Step</strong>
+      <ul>
+        <li>In a naive, non-sensitised host, Mtb <em>survives and replicates</em> within the phagosome by:
+          <ul class="sub">
+            <li><strong>Phagosomal maturation arrest</strong>: Sulfatides (cell wall glycolipids) block Ca²⁺ signalling → prevent recruitment of vesicular fusion proteins → phagosome–lysosome fusion fails</li>
+            <li><strong>Resistance to acidification</strong>: Urease activity neutralises phagosomal pH; ammonia production inhibits acidification</li>
+            <li><strong>Scavenging reactive oxygen species (ROS)</strong>: Catalase-peroxidase enzyme (KatG) neutralises H₂O₂</li>
+            <li><strong>Lipid bodies</strong>: Mycobacteria use host lipids as carbon source for slow intracellular replication</li>
+            <li><strong>Inhibition of apoptosis</strong>: Mtb blocks caspase-dependent apoptosis, favouring necrosis which releases viable bacilli</li>
+          </ul>
+        </li>
+        <li>Result: Unchecked bacterial proliferation within pulmonary alveolar macrophages and air spaces</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>Early Dissemination (First 3 Weeks)</strong>
+      <ul>
+        <li>Infected macrophages traffic to <strong>regional tracheobronchial lymph nodes</strong> via lymphatics</li>
+        <li>Bacteraemia (silent mycobacteraemia) seeds distant sites — apices of lungs, kidneys, bones, meninges</li>
+        <li>No visible lesions at distant sites in immunocompetent individuals at this stage</li>
+        <li>The primary parenchymal lesion + involved hilar lymph node = <strong>Ghon complex</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <strong>Initiation of Adaptive Immunity (3–8 Weeks)</strong>
+      <ul>
+        <li>Infected macrophages/dendritic cells (DCs) migrate to lymph nodes and present mycobacterial antigens via <strong>MHC Class II</strong> to naïve T cells</li>
+        <li>DCs also present via MHC Class I → activation of CD8⁺ cytotoxic T cells</li>
+        <li>Antigen presentation drives expansion of <strong>Th1 CD4⁺ T lymphocytes</strong></li>
+        <li>Sensitised T cells migrate back to site of infection and release:
+          <ul class="sub">
+            <li>γ-Interferon (γ-IFN): the master macrophage-activating cytokine</li>
+            <li>TNF-α: promotes macrophage activation, granuloma formation</li>
+            <li>IL-2: T-cell proliferation signal</li>
+            <li>IL-12: produced by macrophages → drives Th1 differentiation</li>
+            <li>Chemokines (CXCL10, CCL2): recruit additional macrophages and lymphocytes</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <strong>Macrophage Activation & Granuloma Formation</strong>
+      <ul>
+        <li>γ-IFN activates macrophages → <strong>epithelioid cells</strong> (the morphological hallmark)</li>
+        <li>Activated macrophages now achieve phagosome–lysosome fusion and kill bacilli via:
+          <ul class="sub">
+            <li>Reactive oxygen intermediates (ROI)</li>
+            <li>Reactive nitrogen intermediates (RNI) — nitric oxide via iNOS</li>
+            <li>Lysosomal enzymes and defensins</li>
+            <li>Autophagy (LC3-associated phagocytosis)</li>
+          </ul>
+        </li>
+        <li>Fused epithelioid cells → <strong>Langhans giant cells</strong> (nuclei arranged in horseshoe/peripheral pattern)</li>
+        <li>A rim of lymphocytes + fibroblasts surrounds the activated macrophage core = <strong>Granuloma</strong></li>
+        <li>Tuberculin skin test (TST/Mantoux) becomes positive at this stage (~4–8 weeks post-exposure)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">7</div>
+    <div class="step-content">
+      <strong>Caseous Necrosis — The Dual-Edged Response</strong>
+      <ul>
+        <li>Central granuloma undergoes <strong>caseous necrosis</strong> (cheese-like, eosinophilic, structureless debris on microscopy)</li>
+        <li>Mechanism: delayed-type hypersensitivity (DTH) reaction to tuberculoprotein → TNF-α mediated macrophage death</li>
+        <li>Within caseum: <em>low O₂ tension, low pH, fatty acid accumulation</em> → bacteriostatic environment</li>
+        <li>Outcome: Bacilli are contained but <strong>not eradicated</strong> — they remain dormant (latent TB)</li>
+        <li>In ~95% of immunocompetent individuals: fibrosis → calcification → <strong>Ranke complex</strong> (healed Ghon complex)</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- MAIN FLOWCHART -->
+<h2>Pathogenesis Flowchart</h2>
+
+<div class="flow">
+  <div class="flow-step">
+    <div class="flow-box highlight">
+      Inhalation of Mtb droplet nuclei (1–5 bacilli)
+      <span class="sub-text">Reaches terminal alveoli of lower/upper lobe</span>
+    </div>
+  </div>
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-step">
+    <div class="flow-box">
+      Phagocytosis by Alveolar Macrophages
+      <span class="sub-text">Via mannose receptor, CR3, TLRs → phagosome formation</span>
+    </div>
+  </div>
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-step">
+    <div class="flow-box" style="border-color:var(--rust-light);background:var(--red-bg);">
+      Phagosomal Maturation Arrest (Sulfatides block Ca²⁺ signalling)
+      <span class="sub-text">Phagolysosome fusion fails → intracellular bacterial replication (first 3 weeks)</span>
+    </div>
+  </div>
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-step">
+    <div class="flow-box">
+      Bacteraemia → Lymph Node Seeding → Antigen Presentation (DCs)
+      <span class="sub-text">MHC II → CD4⁺ Th1 | MHC I → CD8⁺ CTL | IL-12 drives Th1 bias</span>
+    </div>
+  </div>
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-step">
+    <div class="flow-box">
+      Th1 CD4⁺ T cells release γ-IFN, TNF-α, IL-2
+      <span class="sub-text">Macrophage activation → Epithelioid cells → Langhans giant cells</span>
+    </div>
+  </div>
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-step">
+    <div class="flow-box highlight">
+      Granuloma Formation + Caseous Necrosis
+      <span class="sub-text">Ghon focus + Hilar lymph node = Ghon complex (primary TB)</span>
+    </div>
+  </div>
+  <div class="flow-arrow">↓</div>
+
+  <div style="font-family:'Outfit',sans-serif;font-size:12px;color:var(--muted);text-align:center;margin:4px 0 8px;font-weight:600;letter-spacing:1px;">OUTCOME DEPENDS ON HOST IMMUNITY</div>
+
+  <div class="flow-branch">
+    <div class="flow-branch-box left">
+      <div class="label">✓ Immunocompetent (95%)</div>
+      Fibrosis → Calcification → Ranke complex<br>
+      <em>Latent TB — bacilli dormant but viable</em>
+    </div>
+    <div class="flow-branch-box right">
+      <div class="label">✗ Impaired Immunity (5%)</div>
+      Progressive primary TB / Post-primary reactivation<br>
+      Cavitation → Haematogenous spread → Miliary TB
+    </div>
+  </div>
+</div>
+
+<!-- GRANULOMA DIAGRAM -->
+<h2>Structure of a Tuberculous Granuloma</h2>
+<div class="diagram-wrap">
+  <div class="diagram-title">Schematic Cross-section — Caseating Granuloma</div>
+  <svg viewBox="0 0 580 340" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:580px;">
+    <!-- Fibrosis ring -->
+    <ellipse cx="290" cy="170" rx="275" ry="155" fill="#e8dcc8" stroke="#b8a080" stroke-width="2"/>
+    <!-- Lymphocyte ring -->
+    <ellipse cx="290" cy="170" rx="235" ry="128" fill="#d4e8d0" stroke="#6d9b64" stroke-width="2"/>
+    <!-- Epithelioid zone -->
+    <ellipse cx="290" cy="170" rx="180" ry="98" fill="#ffe5d0" stroke="#c4581f" stroke-width="2.5"/>
+    <!-- Central caseous necrosis -->
+    <ellipse cx="290" cy="170" rx="95" ry="55" fill="#f5c9aa" stroke="#8b3a1a" stroke-width="2.5"/>
+
+    <!-- Langhans giant cells (irregular blobs) -->
+    <ellipse cx="185" cy="148" rx="22" ry="14" fill="#f0a070" stroke="#8b3a1a" stroke-width="1.5" opacity="0.9"/>
+    <ellipse cx="385" cy="160" rx="20" ry="13" fill="#f0a070" stroke="#8b3a1a" stroke-width="1.5" opacity="0.9"/>
+    <ellipse cx="260" cy="220" rx="18" ry="12" fill="#f0a070" stroke="#8b3a1a" stroke-width="1.5" opacity="0.9"/>
+
+    <!-- Nuclei in giant cells (horseshoe) -->
+    <circle cx="179" cy="145" r="3" fill="#8b3a1a"/>
+    <circle cx="185" cy="142" r="3" fill="#8b3a1a"/>
+    <circle cx="191" cy="145" r="3" fill="#8b3a1a"/>
+    <circle cx="380" cy="157" r="3" fill="#8b3a1a"/>
+    <circle cx="386" cy="155" r="3" fill="#8b3a1a"/>
+    <circle cx="390" cy="159" r="3" fill="#8b3a1a"/>
+
+    <!-- Lymphocytes (small dots) -->
+    <circle cx="220" cy="100" r="5" fill="#4a6741" opacity="0.8"/>
+    <circle cx="245" cy="92" r="5" fill="#4a6741" opacity="0.8"/>
+    <circle cx="335" cy="90" r="5" fill="#4a6741" opacity="0.8"/>
+    <circle cx="360" cy="100" r="5" fill="#4a6741" opacity="0.8"/>
+    <circle cx="375" cy="200" r="5" fill="#4a6741" opacity="0.8"/>
+    <circle cx="195" cy="205" r="5" fill="#4a6741" opacity="0.8"/>
+    <circle cx="215" cy="235" r="5" fill="#4a6741" opacity="0.8"/>
+    <circle cx="362" cy="230" r="5" fill="#4a6741" opacity="0.8"/>
+
+    <!-- Labels -->
+    <text x="290" y="165" text-anchor="middle" font-size="12" font-weight="700" fill="#6b2a0a">Caseous</text>
+    <text x="290" y="181" text-anchor="middle" font-size="12" font-weight="700" fill="#6b2a0a">Necrosis</text>
+
+    <text x="185" y="176" text-anchor="middle" font-size="10" fill="#5a2a10">Langhans</text>
+    <text x="185" y="188" text-anchor="middle" font-size="10" fill="#5a2a10">Giant Cell</text>
+
+    <text x="155" y="115" text-anchor="middle" font-size="10" fill="#2c5f24">Epithelioid</text>
+    <text x="155" y="127" text-anchor="middle" font-size="10" fill="#2c5f24">Macrophages</text>
+
+    <text x="427" y="110" text-anchor="start" font-size="10" fill="#2c5f24">Lymphocyte</text>
+    <text x="427" y="122" text-anchor="start" font-size="10" fill="#2c5f24">Cuff</text>
+    <line x1="422" y1="112" x2="365" y2="100" stroke="#4a6741" stroke-width="1" stroke-dasharray="3"/>
+
+    <text x="427" y="170" text-anchor="start" font-size="10" fill="#7a5a30">Fibroblast</text>
+    <text x="427" y="182" text-anchor="start" font-size="10" fill="#7a5a30">Rim</text>
+    <line x1="422" y1="174" x2="395" y2="174" stroke="#b8a080" stroke-width="1" stroke-dasharray="3"/>
+
+    <!-- Title -->
+    <text x="290" y="325" text-anchor="middle" font-size="11" fill="#7a6a55" font-style="italic">Necrotising (caseating) epithelioid cell granuloma — pathological hallmark of TB</text>
+  </svg>
+</div>
+
+<!-- COMPARISON TABLE -->
+<h2>Key Cytokines in TB Pathogenesis</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Cytokine</th>
+      <th>Source</th>
+      <th>Role in TB Pathogenesis</th>
+      <th>Deficiency Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>γ-IFN</strong></td>
+      <td>Th1 CD4⁺ T cells, CD8⁺ T cells, NK cells</td>
+      <td>Master macrophage activator; promotes phagolysosome fusion, RNI production</td>
+      <td>Failure of granuloma formation; disseminated TB (MSMD syndrome)</td>
+    </tr>
+    <tr>
+      <td><strong>TNF-α</strong></td>
+      <td>Macrophages, T cells</td>
+      <td>Granuloma formation and maintenance; antimycobacterial activity; recruits monocytes</td>
+      <td>Granuloma disintegration; reactivation TB (seen with anti-TNF biologics)</td>
+    </tr>
+    <tr>
+      <td><strong>IL-12</strong></td>
+      <td>Dendritic cells, macrophages</td>
+      <td>Drives Th1 differentiation; induces IFN-γ production</td>
+      <td>Susceptibility to mycobacterial disease (IL-12Rβ1 deficiency)</td>
+    </tr>
+    <tr>
+      <td><strong>IL-2</strong></td>
+      <td>T cells</td>
+      <td>T-cell proliferation and survival; sustains immune response</td>
+      <td>Failure to expand antigen-specific T-cell clones</td>
+    </tr>
+    <tr>
+      <td><strong>IL-10</strong></td>
+      <td>Regulatory T cells, macrophages</td>
+      <td>Anti-inflammatory; suppresses excessive inflammation</td>
+      <td>Exaggerated immunopathology; excess IL-10 promotes bacterial persistence</td>
+    </tr>
+    <tr>
+      <td><strong>IL-17/IL-22</strong></td>
+      <td>Th17 cells</td>
+      <td>Neutrophil recruitment; early containment; mucosal immunity</td>
+      <td>Impaired early response and bacterial clearance</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- PROGRESSION -->
+<h2>Factors Determining Disease Progression</h2>
+<h3>Host Factors Favouring Progression</h3>
+<ul>
+  <li>HIV/AIDS (CD4⁺ T-cell depletion — most potent risk factor; TB risk increases 20–30-fold)</li>
+  <li>Malnutrition (impairs lymphocyte function and macrophage activation)</li>
+  <li>Diabetes mellitus (impaired neutrophil and macrophage function)</li>
+  <li>Silicosis (quartz particles impair alveolar macrophage function)</li>
+  <li>Extremes of age — infancy and elderly (immature/waning immunity)</li>
+  <li>Immunosuppressive therapy — corticosteroids, TNF-α inhibitors (biologics), transplant drugs</li>
+  <li>Chronic kidney disease, alcoholism, tobacco smoking</li>
+</ul>
+
+<h3>Bacterial Virulence Factors</h3>
+<ul>
+  <li><strong>Cord factor</strong> (trehalose-6,6'-dimycolate): toxic to mitochondria; inhibits phagosome maturation; triggers granuloma formation</li>
+  <li><strong>Lipoarabinomannan (LAM)</strong>: inhibits macrophage activation by γ-IFN; scavenges reactive oxygen species</li>
+  <li><strong>ESAT-6 / CFP-10</strong> (ESX-1 secretion system): lyses phagosomal membrane → bacilli escape to cytoplasm</li>
+  <li><strong>Antioxidant enzymes</strong>: KatG (catalase-peroxidase) neutralises H₂O₂</li>
+  <li><strong>PE/PPE proteins</strong>: antigenic variation → immune evasion</li>
+</ul>
+
+<!-- REACTIVATION TABLE -->
+<h2>Primary vs Post-Primary (Reactivation) TB — Pathogenetic Comparison</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Primary TB</th>
+      <th>Post-Primary (Reactivation) TB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Host immunity</td><td>Naïve / non-sensitised</td><td>Pre-sensitised (prior exposure)</td></tr>
+    <tr><td>Site of lesion</td><td>Mid-lung (lower upper lobe / upper lower lobe)</td><td>Apical / sub-apical segments (Simon foci)</td></tr>
+    <tr><td>Lymph node involvement</td><td>Prominent (larger than parenchymal focus)</td><td>Minimal (parenchymal lesion dominates)</td></tr>
+    <tr><td>Tuberculin test</td><td>Converts positive at 4–8 weeks</td><td>Already positive</td></tr>
+    <tr><td>Bacteraemia</td><td>Common (silent mycobacteraemia)</td><td>Uncommon unless immunocompromised</td></tr>
+    <tr><td>Cavitation</td><td>Rare (except in infants/elderly)</td><td>Characteristic; drives transmission</td></tr>
+    <tr><td>Typical outcome (immunocompetent)</td><td>Healing → Ghon complex → Ranke complex</td><td>Fibrocaseous disease or cavitary TB</td></tr>
+    <tr><td>AFB in sputum</td><td>Rarely positive</td><td>Frequently smear-positive</td></tr>
+    <tr><td>Histology</td><td>Ghon focus + caseating granuloma</td><td>Coalescent granulomas, cavities, fibrosis</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- LATENCY -->
+<h2>Latent TB & Reactivation Mechanism</h2>
+<ul>
+  <li>After primary infection, Mtb enters a <strong>metabolic dormancy</strong> state within granulomas</li>
+  <li>Within caseum: hypoxia + low pH + fatty acids → bacteria downregulate metabolic activity (DosR regulon)</li>
+  <li>Viable but non-replicating bacilli may persist for <em>decades</em> even in calcified lesions</li>
+  <li>Reactivation is triggered when:
+    <ul class="sub">
+      <li>CD4⁺ T-cell count falls below critical threshold (especially in HIV)</li>
+      <li>TNF-α blockade disrupts granuloma integrity</li>
+      <li>Intercurrent illness, malnutrition, ageing</li>
+    </ul>
+  </li>
+  <li>Liquefaction of solid caseum (via macrophage proteases) → cavity formation → massive bacillary load → high transmission potential</li>
+</ul>
+
+<div class="callout box-red">
+  <strong>Important:</strong> Anti-TNF biologics (infliximab, adalimumab) used in rheumatoid arthritis and IBD are a potent risk for reactivation TB — they disrupt granuloma architecture. Mandatory TB screening (IGRA/TST) is required before initiating these agents.
+</div>
+
+<!-- IMMUNOCOMPROMISED -->
+<h2>Pathogenesis in the Immunocompromised (HIV/AIDS)</h2>
+<ul>
+  <li>CD4⁺ T-cell depletion → loss of γ-IFN → macrophage activation fails → granuloma formation impaired</li>
+  <li>Histopathology shows <strong>poorly formed or absent granulomas</strong> — replaced by aggregates of macrophages containing numerous AFB</li>
+  <li>Non-reactive TB (disseminated, necrotic, no cellular reaction) in late-stage AIDS</li>
+  <li>Extrapulmonary TB occurs in up to <strong>70% of HIV-TB co-infected</strong> patients (cf. ~20–25% in immunocompetent)</li>
+  <li>False-negative TST and sputum smears are common ("anergy")</li>
+  <li>IRIS (Immune Reconstitution Inflammatory Syndrome) after ART initiation may unmask or worsen TB</li>
+</ul>
+
+<!-- SUMMARY TABLE -->
+<h2>Summary: Sequential Events in TB Pathogenesis</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Phase</th>
+      <th>Timing</th>
+      <th>Key Events</th>
+      <th>Morphological Correlate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Inhalation</td><td>Day 0</td><td>Droplet nuclei deposit in alveoli; ingested by AMs</td><td>No visible lesion</td></tr>
+    <tr><td>Early proliferation</td><td>Days 1–21</td><td>Phagosomal arrest; intracellular replication; silent bacteraemia</td><td>Alveolar macrophage clusters</td></tr>
+    <tr><td>Immune induction</td><td>Week 3–8</td><td>Antigen presentation; Th1 expansion; γ-IFN release</td><td>Tuberculin conversion; exudative lesion</td></tr>
+    <tr><td>Granuloma formation</td><td>Week 4–10</td><td>Macrophage activation → epithelioid cells → giant cells → caseation</td><td>Ghon focus + hilar adenopathy = Ghon complex</td></tr>
+    <tr><td>Containment</td><td>Weeks–months</td><td>Fibrosis → calcification; bacilli dormant</td><td>Ranke complex (calcified Ghon complex)</td></tr>
+    <tr><td>Reactivation</td><td>Years–decades later</td><td>Immunosuppression → caseous liquefaction → cavitation</td><td>Apical fibrocaseous TB with cavities</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout box-green">
+  <strong>Conclusion:</strong> The pathogenesis of TB is a dynamic battle between mycobacterial immune evasion strategies and host granulomatous immunity. The granuloma — while serving to contain infection — also enables bacterial persistence, making TB a lifelong adversary. Understanding these mechanisms underlies the rationale for both anti-TB chemotherapy (targeting metabolically active and dormant bacilli) and immunotherapy-based approaches to prevention and treatment.
+</div>
+
+<div class="doc-footer">
+  <span>Ref: Sri Textbook of Tuberculosis (Suresh M) · Sharma Textbook of Tuberculosis & NTM Diseases (Datta Gupta et al.)</span>
+  <span>Harrison's Principles of Internal Medicine, 21e · Robbins & Cotran Pathologic Basis of Disease, 10e</span>
+</div>
+
+</body>
+</html>
