@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wallgren's Table — 10-Mark Structured Answer | Paediatric Tuberculosis</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0d1117;
+    --bg2:       #161b22;
+    --bg3:       #1c2230;
+    --border:    #30363d;
+    --border2:   #21262d;
+    --accent:    #58a6ff;
+    --text:      #e6edf3;
+    --text2:     #8b949e;
+    --text3:     #c9d1d9;
+    --red:       #ff7b72;
+    --orange:    #ffa657;
+    --teal:      #39d353;
+    --yellow:    #e3b341;
+    --purple:    #d2a8ff;
+    --rose:      #f778ba;
+    --cyan:      #79c0ff;
+    --head-font: 'Playfair Display', serif;
+    --body-font: 'Sora', sans-serif;
+    --mono-font: 'JetBrains Mono', monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text3);font-family:var(--body-font);font-size:15px;line-height:1.75}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#0d1117 0%,#14121e 50%,#0d1117 100%);border-bottom:1px solid var(--border);padding:56px 0 40px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(247,120,186,.07) 0%,transparent 70%);pointer-events:none}
+  .hero-tag{display:inline-block;font-family:var(--mono-font);font-size:11px;letter-spacing:.12em;color:var(--rose);background:rgba(247,120,186,.1);border:1px solid rgba(247,120,186,.25);border-radius:20px;padding:4px 14px;margin-bottom:18px;text-transform:uppercase}
+  .hero h1{font-family:var(--head-font);font-size:clamp(24px,4vw,40px);font-weight:700;color:var(--text);line-height:1.2;max-width:820px;margin:0 auto 12px;padding:0 24px}
+  .hero h1 .hl-rose{color:var(--rose)} .hero h1 .hl-cyan{color:var(--cyan)}
+  .hero-sub{font-size:14px;color:var(--text2);font-family:var(--mono-font);letter-spacing:.05em}
+  .hero-meta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+  .hero-badge{font-size:12px;font-family:var(--mono-font);color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 12px}
+
+  /* LAYOUT */
+  .container{max-width:1020px;margin:0 auto;padding:0 24px 80px}
+
+  /* TOC */
+  .toc{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:36px 0 44px;position:relative}
+  .toc::before{content:'';position:absolute;left:0;top:20px;bottom:20px;width:3px;background:linear-gradient(180deg,var(--rose),var(--cyan));border-radius:2px}
+  .toc h3{font-family:var(--mono-font);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);margin-bottom:14px}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 32px}
+  @media(max-width:600px){.toc-grid{grid-template-columns:1fr}}
+  .toc a{color:var(--text2);text-decoration:none;font-size:13px;transition:color .2s;display:flex;gap:8px;align-items:baseline;padding:2px 0}
+  .toc a:hover{color:var(--rose)}
+  .toc-num{font-family:var(--mono-font);font-size:11px;color:var(--rose);min-width:26px}
+
+  /* SECTION */
+  .section{margin-bottom:52px;scroll-margin-top:24px}
+  .section-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+  .section-num{font-family:var(--mono-font);font-size:11px;color:var(--rose);background:rgba(247,120,186,.08);border:1px solid rgba(247,120,186,.22);border-radius:6px;padding:3px 9px;white-space:nowrap}
+  .section-title{font-family:var(--head-font);font-size:22px;font-weight:700;color:var(--text);border-bottom:1px solid var(--border);padding-bottom:10px;flex:1}
+
+  /* CALLOUTS */
+  .callout{border-radius:0 10px 10px 0;padding:16px 22px;margin:14px 0;font-size:14px;border-left:3px solid}
+  .callout-rose  {background:rgba(247,120,186,.07);border-color:var(--rose);color:var(--text3)}
+  .callout-cyan  {background:rgba(121,192,255,.07);border-color:var(--cyan);color:var(--text3)}
+  .callout-teal  {background:rgba(63,185,80,.07);  border-color:var(--teal);color:var(--text3)}
+  .callout-yellow{background:rgba(227,179,65,.07); border-color:var(--yellow);color:var(--text3)}
+  .callout-orange{background:rgba(255,166,87,.07); border-color:var(--orange);color:var(--text3)}
+  .callout-red   {background:rgba(255,123,114,.07);border-color:var(--red);color:var(--text3)}
+  .callout strong{display:block;margin-bottom:5px;font-size:12px;font-family:var(--mono-font);letter-spacing:.05em;text-transform:uppercase}
+  .callout-rose strong  {color:var(--rose)}
+  .callout-cyan strong  {color:var(--cyan)}
+  .callout-teal strong  {color:var(--teal)}
+  .callout-yellow strong{color:var(--yellow)}
+  .callout-orange strong{color:var(--orange)}
+  .callout-red strong   {color:var(--red)}
+
+  /* BULLETS */
+  .blist{list-style:none;padding:0}
+  .blist li{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid rgba(48,54,61,.5);font-size:14px;color:var(--text3)}
+  .blist li:last-child{border-bottom:none}
+  .blist li::before{content:'›';color:var(--rose);font-weight:700;font-size:16px;line-height:1.4;flex-shrink:0}
+  .blist li b{color:var(--text)}
+  .sblist{list-style:none;padding:0;margin:4px 0 4px 18px}
+  .sblist li{display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--text2);padding:2px 0}
+  .sblist li::before{content:'–';color:var(--border);flex-shrink:0}
+
+  /* TABLES */
+  .tbl-wrap{overflow-x:auto;margin:16px 0;border-radius:10px;border:1px solid var(--border)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  thead th{background:var(--bg3);color:var(--text);font-family:var(--body-font);font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border)}
+  tbody tr{border-bottom:1px solid var(--border2);transition:background .15s}
+  tbody tr:last-child{border-bottom:none}
+  tbody tr:nth-child(even){background:rgba(22,27,34,.6)}
+  tbody tr:hover{background:rgba(247,120,186,.04)}
+  td{padding:11px 16px;vertical-align:top;color:var(--text3);line-height:1.6}
+  td:first-child{color:var(--text);font-weight:600}
+
+  .tag{display:inline-block;font-size:11px;font-family:var(--mono-font);border-radius:4px;padding:2px 7px;font-weight:600}
+  .tag-red   {background:rgba(255,123,114,.12);color:var(--red);  border:1px solid rgba(255,123,114,.3)}
+  .tag-orange{background:rgba(255,166,87,.12); color:var(--orange);border:1px solid rgba(255,166,87,.3)}
+  .tag-green {background:rgba(63,185,80,.12);  color:var(--teal);  border:1px solid rgba(63,185,80,.3)}
+  .tag-blue  {background:rgba(88,166,255,.12); color:var(--accent);border:1px solid rgba(88,166,255,.3)}
+  .tag-cyan  {background:rgba(121,192,255,.12);color:var(--cyan);  border:1px solid rgba(121,192,255,.3)}
+  .tag-yellow{background:rgba(227,179,65,.12); color:var(--yellow);border:1px solid rgba(227,179,65,.3)}
+  .tag-rose  {background:rgba(247,120,186,.12);color:var(--rose);  border:1px solid rgba(247,120,186,.3)}
+  .tag-purple{background:rgba(210,168,255,.12);color:var(--purple);border:1px solid rgba(210,168,255,.3)}
+
+  /* THE WALLGREN TABLE — MAIN VISUAL */
+  .wallgren-timeline{position:relative;margin:20px 0;padding-left:0}
+  .wt-row{display:grid;grid-template-columns:130px 18px 1fr;gap:0 16px;align-items:stretch;margin-bottom:0}
+  .wt-time{font-family:var(--mono-font);font-size:12px;font-weight:600;padding:14px 0 14px 0;text-align:right;line-height:1.3;display:flex;align-items:center;justify-content:flex-end}
+  .wt-spine{display:flex;flex-direction:column;align-items:center}
+  .wt-dot{width:14px;height:14px;border-radius:50%;border:2px solid;background:var(--bg);flex-shrink:0;margin-top:16px}
+  .wt-line{width:2px;flex:1;margin-top:2px}
+  .wt-card{border-radius:8px;padding:13px 16px;margin:6px 0;font-size:13px;border:1px solid;line-height:1.55}
+  .wt-card-title{font-weight:700;font-size:14px;margin-bottom:4px}
+  .wt-card-sub{font-size:11px;font-family:var(--mono-font);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+
+  /* Phase colours */
+  .phase-early .wt-dot  {border-color:var(--rose)}
+  .phase-early .wt-line {background:linear-gradient(180deg,var(--rose),var(--orange))}
+  .phase-early .wt-time {color:var(--rose)}
+  .phase-early .wt-card {background:rgba(247,120,186,.08);border-color:rgba(247,120,186,.3);color:var(--text3)}
+  .phase-early .wt-card-title{color:var(--rose)}
+  .phase-early .wt-card-sub  {color:rgba(247,120,186,.7)}
+
+  .phase-mid .wt-dot  {border-color:var(--orange)}
+  .phase-mid .wt-line {background:linear-gradient(180deg,var(--orange),var(--yellow))}
+  .phase-mid .wt-time {color:var(--orange)}
+  .phase-mid .wt-card {background:rgba(255,166,87,.08);border-color:rgba(255,166,87,.3);color:var(--text3)}
+  .phase-mid .wt-card-title{color:var(--orange)}
+  .phase-mid .wt-card-sub  {color:rgba(255,166,87,.7)}
+
+  .phase-late .wt-dot  {border-color:var(--yellow)}
+  .phase-late .wt-line {background:linear-gradient(180deg,var(--yellow),var(--teal))}
+  .phase-late .wt-time {color:var(--yellow)}
+  .phase-late .wt-card {background:rgba(227,179,65,.08);border-color:rgba(227,179,65,.3);color:var(--text3)}
+  .phase-late .wt-card-title{color:var(--yellow)}
+  .phase-late .wt-card-sub  {color:rgba(227,179,65,.7)}
+
+  .phase-verylt .wt-dot  {border-color:var(--teal)}
+  .phase-verylt .wt-line {background:linear-gradient(180deg,var(--teal),var(--cyan))}
+  .phase-verylt .wt-time {color:var(--teal)}
+  .phase-verylt .wt-card {background:rgba(63,185,80,.08);border-color:rgba(63,185,80,.3);color:var(--text3)}
+  .phase-verylt .wt-card-title{color:var(--teal)}
+  .phase-verylt .wt-card-sub  {color:rgba(63,185,80,.7)}
+
+  .phase-remote .wt-dot  {border-color:var(--cyan)}
+  .phase-remote .wt-line {background:var(--border)}
+  .phase-remote .wt-time {color:var(--cyan)}
+  .phase-remote .wt-card {background:rgba(121,192,255,.08);border-color:rgba(121,192,255,.3);color:var(--text3)}
+  .phase-remote .wt-card-title{color:var(--cyan)}
+  .phase-remote .wt-card-sub  {color:rgba(121,192,255,.7)}
+
+  /* FLOWCHART */
+  .flow-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:28px 20px;margin:16px 0}
+  .flow-title{font-family:var(--mono-font);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin-bottom:24px;text-align:center}
+  .flow{display:flex;flex-direction:column;align-items:center}
+  .fbox{width:100%;max-width:620px;border-radius:8px;padding:12px 20px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.45}
+  .fbox small{display:block;font-weight:400;font-size:12px;opacity:.82;margin-top:3px}
+  .fbox-rose  {background:rgba(247,120,186,.1);border:1px solid rgba(247,120,186,.35);color:var(--rose)}
+  .fbox-cyan  {background:rgba(121,192,255,.1);border:1px solid rgba(121,192,255,.35);color:var(--cyan)}
+  .fbox-teal  {background:rgba(63,185,80,.1);  border:1px solid rgba(63,185,80,.35);  color:var(--teal)}
+  .fbox-orange{background:rgba(255,166,87,.1); border:1px solid rgba(255,166,87,.35); color:var(--orange)}
+  .fbox-yellow{background:rgba(227,179,65,.1); border:1px solid rgba(227,179,65,.35); color:var(--yellow)}
+  .fbox-red   {background:rgba(255,123,114,.1);border:1px solid rgba(255,123,114,.35);color:var(--red)}
+  .fbox-dark  {background:var(--bg3);border:1px solid var(--border);color:var(--text3)}
+  .arrow{font-size:22px;color:var(--border);line-height:1;margin:5px 0}
+  .fork{display:flex;gap:12px;width:100%;max-width:680px;justify-content:center;flex-wrap:wrap;margin:4px 0}
+  .fork-item{flex:1;min-width:150px;border-radius:8px;padding:11px 13px;font-size:13px;font-weight:600;text-align:center;line-height:1.4}
+  .fork-item small{display:block;font-weight:400;font-size:11.5px;opacity:.85;margin-top:3px}
+
+  /* COMPARISON TWO-COL */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  @media(max-width:580px){.two-col{grid-template-columns:1fr}}
+  .col-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+  .col-box h4{font-size:12px;font-family:var(--mono-font);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+  .col-box.rose-head h4  {color:var(--rose)}
+  .col-box.cyan-head h4  {color:var(--cyan)}
+  .col-box.teal-head h4  {color:var(--teal)}
+  .col-box.yellow-head h4{color:var(--yellow)}
+  .col-box ul{list-style:none}
+  .col-box ul li{font-size:13px;color:var(--text3);padding:3px 0;display:flex;gap:8px}
+  .col-box.rose-head   ul li::before{content:'›';color:var(--rose)}
+  .col-box.cyan-head   ul li::before{content:'›';color:var(--cyan)}
+  .col-box.teal-head   ul li::before{content:'›';color:var(--teal)}
+  .col-box.yellow-head ul li::before{content:'›';color:var(--yellow)}
+
+  /* MNEMONIC */
+  .mnemonic{display:grid;grid-template-columns:52px 1fr;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:16px 0}
+  .mn-letter{background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--head-font);font-size:28px;font-weight:700;color:var(--rose);border-bottom:1px solid var(--border);padding:14px}
+  .mn-letter:last-of-type{border-bottom:none}
+  .mn-text{padding:13px 18px;font-size:13.5px;color:var(--text3);border-bottom:1px solid var(--border2);border-left:1px solid var(--border);display:flex;align-items:center}
+  .mn-text:last-child{border-bottom:none}
+
+  /* STAT CARDS */
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0}
+  .stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:18px 16px;text-align:center;position:relative;overflow:hidden}
+  .stat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
+  .stat-card.rose::after  {background:var(--rose)}
+  .stat-card.cyan::after  {background:var(--cyan)}
+  .stat-card.teal::after  {background:var(--teal)}
+  .stat-card.orange::after{background:var(--orange)}
+  .stat-card.yellow::after{background:var(--yellow)}
+  .stat-num{font-family:var(--head-font);font-size:26px;font-weight:700;line-height:1.1;margin-bottom:4px}
+  .stat-card.rose .stat-num  {color:var(--rose)}
+  .stat-card.cyan .stat-num  {color:var(--cyan)}
+  .stat-card.teal .stat-num  {color:var(--teal)}
+  .stat-card.orange .stat-num{color:var(--orange)}
+  .stat-card.yellow .stat-num{color:var(--yellow)}
+  .stat-lbl{font-size:12px;color:var(--text2);line-height:1.4}
+
+  /* SCROLLBAR / FOOTER */
+  ::-webkit-scrollbar{width:8px;height:8px}
+  ::-webkit-scrollbar-track{background:var(--bg)}
+  ::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+  footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;color:var(--text2);font-size:12px;font-family:var(--mono-font);line-height:1.8;max-width:1020px;margin:0 auto}
+
+  @media print{
+    body{background:white;color:#222}
+    .hero{background:white;border-bottom:2px solid #c0392b}
+    .hero h1{color:#1a1a1a}
+    .toc,.callout,.col-box,.flow-wrap,.stat-card{background:#f8f9fa;border-color:#dee2e6}
+    td,.blist li{color:#333}
+    thead th{background:#e9ecef;color:#333}
+    .section-title{color:#111}
+    .wt-card{background:#f0f4ff !important;border-color:#aaa !important}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">10-Mark Structured Answer · Paediatric Tuberculosis</div>
+  <h1><span class="hl-rose">Wallgren's</span> <span class="hl-cyan">Timetable</span> of Events in Primary Tuberculosis</h1>
+  <div class="hero-sub">Primary TB · Natural History · Paediatric TB · Complications · Timing of Manifestations</div>
+  <div class="hero-meta">
+    <span class="hero-badge">~1000 words</span>
+    <span class="hero-badge">12 sections</span>
+    <span class="hero-badge">Detailed timeline diagram</span>
+    <span class="hero-badge">Flowcharts + Tables</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <div class="toc-grid">
+      <a href="#s1"><span class="toc-num">01</span> Introduction & Historical Background</a>
+      <a href="#s7"><span class="toc-num">07</span> Early Events (0–8 Weeks) — Detail</a>
+      <a href="#s2"><span class="toc-num">02</span> What is Wallgren's Table?</a>
+      <a href="#s8"><span class="toc-num">08</span> Mid-phase Events (3–6 Months)</a>
+      <a href="#s3"><span class="toc-num">03</span> Primary TB Complex — Overview</a>
+      <a href="#s9"><span class="toc-num">09</span> Late Events (6–12 Months)</a>
+      <a href="#s4"><span class="toc-num">04</span> Wallgren's Timetable — Full Diagram</a>
+      <a href="#s10"><span class="toc-num">10</span> Very Late / Remote Events (&gt;1 Year)</a>
+      <a href="#s5"><span class="toc-num">05</span> Pathogenesis: Steps in Primary TB</a>
+      <a href="#s11"><span class="toc-num">11</span> Clinical Significance & Applications</a>
+      <a href="#s6"><span class="toc-num">06</span> Ghon's Focus, Complex & Ranke Complex</a>
+      <a href="#s12"><span class="toc-num">12</span> Summary & Mnemonic</a>
+    </div>
+  </div>
+
+  <!-- 1. INTRODUCTION -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Introduction &amp; Historical Background</h2>
+    </div>
+    <ul class="blist">
+      <li><b>Arvid Wallgren</b> (1889–1973) — Swedish paediatrician and tuberculosis pioneer; described the characteristic sequence of events following primary TB infection in children</li>
+      <li>His landmark work, published in the <b>American Review of Tuberculosis (1948)</b>, described the timetable of events after primary infection based on meticulous clinical and tuberculin observations</li>
+      <li>Wallgren's contribution was instrumental in understanding <b>primary TB as a dynamic, evolving disease</b> with predictable temporal milestones</li>
+      <li>His observations were made in the <b>pre-chemotherapy era</b> — reflecting the natural history of untreated primary TB in children</li>
+      <li>The timetable remains <b>clinically relevant today</b> for understanding timing of complications, tuberculin conversion, and BCG immunity</li>
+      <li>Also known as <b>"Wallgren's Timetable"</b> or <b>"Calendar of Events in Primary Tuberculosis"</b></li>
+    </ul>
+    <div class="callout callout-rose">
+      <strong>Key Definition</strong>
+      Wallgren's Table = A chronological timetable describing the sequence and timing of immunological, pathological, and clinical events following primary infection with <em>Mycobacterium tuberculosis</em> in children — from initial infection to potential late complications — typically spanning weeks to years
+    </div>
+  </div>
+
+  <!-- 2. WHAT IS WALLGREN'S TABLE -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">What is Wallgren's Table?</h2>
+    </div>
+    <ul class="blist">
+      <li>It is a <b>timetable of events in primary tuberculosis</b> — describing in chronological order what happens after a child inhales <i>M. tuberculosis</i> for the first time</li>
+      <li>Covers events from <b>week 1 post-infection through years later</b> — including immunological events, radiological changes, clinical manifestations, and potential complications</li>
+      <li>Key principle: <b>Primary TB in children is not simply a pulmonary disease</b> — it is a systemic disease with predictable sequential events driven by the interplay between bacterial multiplication and host immune response</li>
+      <li>Wallgren's timetable is <b>NOT about the natural history of adult PTB</b> — it specifically describes events in children (and uninfected adults) following their <b>first-ever</b> encounter with MTB (primary infection)</li>
+      <li>The timetable helps clinicians <b>anticipate complications, time investigations, and counsel families</b> about expected disease course</li>
+    </ul>
+    <div class="stat-grid">
+      <div class="stat-card rose">
+        <div class="stat-num">3–8</div>
+        <div class="stat-lbl">Weeks to tuberculin positivity after infection</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="stat-num">3–6</div>
+        <div class="stat-lbl">Months when haematogenous dissemination is highest risk</div>
+      </div>
+      <div class="stat-card yellow">
+        <div class="stat-num">3–9</div>
+        <div class="stat-lbl">Months when miliary TB / meningitis risk peaks</div>
+      </div>
+      <div class="stat-card teal">
+        <div class="stat-num">3–5</div>
+        <div class="stat-lbl">Years when renal TB typically manifests</div>
+      </div>
+      <div class="stat-card cyan">
+        <div class="stat-num">≥3</div>
+        <div class="stat-lbl">Years for bone / joint TB to appear</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. PRIMARY TB COMPLEX -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Primary TB Complex — Overview</h2>
+    </div>
+    <ul class="blist">
+      <li><b>Primary TB complex (Ghon's complex)</b> = the triad formed after first infection: (1) Ghon's focus (lung parenchymal lesion) + (2) lymphangitis + (3) regional lymph node enlargement (hilar / paratracheal)</li>
+      <li><b>Site:</b> Most commonly the <b>subpleural region</b> — well-ventilated areas — upper part of lower lobe or lower part of upper lobe (classically the "mid-zone" on CXR)</li>
+      <li><b>Ghon's focus:</b> Named after Anton Ghon (Austrian pathologist, 1912) — the initial parenchymal lesion; typically 1–2 cm; may calcify → Ghon's calcified focus</li>
+      <li><b>Ranke complex:</b> When both Ghon's calcified focus AND calcified hilar lymph nodes are visible on CXR → Ranke complex (named after Karl Ernst Ranke)</li>
+      <li><b>Unlike adult PTB</b> — in primary TB, the lymph nodes are disproportionately enlarged relative to the parenchymal lesion (lymph node > parenchymal lesion in size)</li>
+      <li><b>Erythema nodosum</b> and <b>phlyctenular conjunctivitis</b> — hypersensitivity manifestations that occur at the time of tuberculin conversion (3–8 weeks)</li>
+    </ul>
+    <div class="callout callout-cyan">
+      <strong>Ghon Focus vs Ranke Complex</strong>
+      <b>Ghon Focus</b> = solitary calcified parenchymal scar (old primary infection) | <b>Ghon Complex</b> = Ghon focus + ipsilateral enlarged hilar/mediastinal LN + lymphangitis (active primary) | <b>Ranke Complex</b> = calcified Ghon focus + calcified hilar LN (healed/old primary infection seen on CXR)
+    </div>
+  </div>
+
+  <!-- 4. WALLGREN'S TIMETABLE — MAIN VISUAL -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Wallgren's Timetable — Complete Chronological Diagram</h2>
+    </div>
+    <p style="font-size:13.5px;color:var(--text3);margin-bottom:18px;">The following timeline traces events from the moment of <em>first infection</em> with <em>M. tuberculosis</em> through potential late complications over years:</p>
+
+    <div class="wallgren-timeline">
+
+      <!-- WEEK 1–3 -->
+      <div class="wt-row phase-early">
+        <div class="wt-time">Week 1–3</div>
+        <div class="wt-spine"><div class="wt-dot"></div><div class="wt-line"></div></div>
+        <div class="wt-card">
+          <div class="wt-card-title">Implantation & Early Infection (Silent Phase)</div>
+          <div class="wt-card-sub">Pre-allergic period · No symptoms · Tuberculin NEGATIVE</div>
+          <ul class="sblist">
+            <li>MTB inhaled → deposited in alveoli → ingested by alveolar macrophages</li>
+            <li>Bacilli multiply within macrophages (intracellular) → local spread to regional (hilar) lymph nodes via lymphatics</li>
+            <li>Ghon's focus begins forming — a small area of pneumonitis</li>
+            <li>NO systemic symptoms; tuberculin test NEGATIVE at this stage</li>
+            <li>Bacteraemia may occur at this very early stage — "occult" dissemination</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- WEEK 3–8 -->
+      <div class="wt-row phase-early">
+        <div class="wt-time">Week 3–8</div>
+        <div class="wt-spine"><div class="wt-dot"></div><div class="wt-line"></div></div>
+        <div class="wt-card">
+          <div class="wt-card-title">Tuberculin Conversion — Allergic Phase Begins</div>
+          <div class="wt-card-sub">Hallmark event · TST / IGRA becomes positive</div>
+          <ul class="sblist">
+            <li><b>Tuberculin skin test (TST) becomes positive</b> — usually 3–8 weeks (average 4–6 weeks) after infection; marks onset of cell-mediated immunity (CMI)</li>
+            <li>Granuloma formation — Langhans giant cells, epithelioid cells, lymphocytic cuffing around bacilli</li>
+            <li><b>Erythema nodosum</b> — painful red nodules on shins; hypersensitivity reaction coinciding with tuberculin conversion</li>
+            <li><b>Phlyctenular conjunctivitis</b> — nodular hypersensitivity lesion at limbus of cornea; concurrent with tuberculin conversion</li>
+            <li>Mild systemic symptoms may appear: low-grade fever, malaise, weight loss</li>
+            <li>CXR may show early hilar lymphadenopathy; parenchymal lesion small / not visible</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MONTH 3–6 -->
+      <div class="wt-row phase-mid">
+        <div class="wt-time">Month 3–6</div>
+        <div class="wt-spine"><div class="wt-dot"></div><div class="wt-line"></div></div>
+        <div class="wt-card">
+          <div class="wt-card-title">Peak Risk of Haematogenous Dissemination</div>
+          <div class="wt-card-sub">Most dangerous period · Miliary TB · Meningitis risk</div>
+          <ul class="sblist">
+            <li><b>Highest risk period for haematogenous dissemination</b> — especially in infants and young children (&lt;5 years)</li>
+            <li><b>Miliary tuberculosis</b> — occurs during this phase; diffuse bilateral micronodular shadows on CXR ("millet seeds"); most dangerous in infants</li>
+            <li><b>Tuberculous meningitis (TBM)</b> — peak onset 3–6 months post-infection; carries highest mortality and morbidity of all TB manifestations; results from seeding of meninges during early bacteraemia</li>
+            <li>Pleural effusion (primary TB pleurisy) — may occur at this stage; exudative lymphocytic effusion</li>
+            <li>Primary progressive pneumonia — if immunity insufficient to contain Ghon focus → enlargement and progression</li>
+            <li>Hilar lymph nodes maximally enlarged; risk of bronchial compression → "collapse-consolidation" (epituberculosis)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MONTH 3–9 -->
+      <div class="wt-row phase-mid">
+        <div class="wt-time">Month 3–9</div>
+        <div class="wt-spine"><div class="wt-dot"></div><div class="wt-line"></div></div>
+        <div class="wt-card">
+          <div class="wt-card-title">Pleural Effusion & Superficial Lymphadenitis</div>
+          <div class="wt-card-sub">Hypersensitivity-mediated complications</div>
+          <ul class="sblist">
+            <li><b>Tuberculous pleuritis (pleural effusion)</b> — characteristically occurs 3–9 months after primary infection; typically unilateral; exudative, lymphocytic, ADA elevated; rarely smear-positive; 5% of primary TB</li>
+            <li><b>Superficial lymphadenitis</b> (scrofula) — cervical, axillary, inguinal nodes; collar-stud abscess formation; occurs 3–6 months post-infection</li>
+            <li>Erythema nodosum and phlyctenular conjunctivitis may persist or recur</li>
+            <li>Continued CXR changes: hilar LN enlargement, partial lobar collapse (segmental), areas of consolidation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MONTH 6–12 -->
+      <div class="wt-row phase-late">
+        <div class="wt-time">Month 6–12</div>
+        <div class="wt-spine"><div class="wt-dot"></div><div class="wt-line"></div></div>
+        <div class="wt-card">
+          <div class="wt-card-title">Healing or Early Complications</div>
+          <div class="wt-card-sub">Resolution vs progression · Calcification begins</div>
+          <ul class="sblist">
+            <li>In majority — <b>healing occurs</b>: granulomas undergo central caseation → fibrosis → calcification → Ghon's calcified focus (visible on CXR after 6–12 months)</li>
+            <li>Hilar LN calcification begins; ultimately → Ranke complex if both Ghon focus and LN calcify</li>
+            <li><b>Bone and joint TB</b> onset begins — spine (Pott's disease), hip, knee; most cases of bone TB present from 6 months to several years post-infection</li>
+            <li><b>Pericardial TB</b> — can occur at 6–12 months; presents as pericardial effusion → risk of constrictive pericarditis</li>
+            <li>In infants and immunocompromised: disseminated TB can still occur at this stage</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- YEAR 1–3 -->
+      <div class="wt-row phase-verylt">
+        <div class="wt-time">Year 1–3</div>
+        <div class="wt-spine"><div class="wt-dot"></div><div class="wt-line"></div></div>
+        <div class="wt-card">
+          <div class="wt-card-title">Bone, Joint TB & Continued Healing</div>
+          <div class="wt-card-sub">Late haematogenous seeding · Skeletal TB</div>
+          <ul class="sblist">
+            <li><b>Skeletal TB</b> (Pott's disease of spine, hip joint, knee) — typically appears 1–3 years after primary infection; results from haematogenous seeding during the early bacteraemia</li>
+            <li>Spine involvement (Pott's disease) most common — lower thoracic / upper lumbar vertebrae; angular kyphosis; potential cord compression (Pott's paraplegia)</li>
+            <li>CXR: Ghon focus calcifying; hilar LN resolving or calcifying; parenchymal lesion clearing</li>
+            <li>Tuberculous dactylitis (spina ventosa) — bone TB in children involving phalanges; presents as painless soft-tissue swelling</li>
+            <li>TB of knee (white swelling / tumour albus) — cold abscess around knee joint</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- YEAR 3–5 -->
+      <div class="wt-row phase-verylt">
+        <div class="wt-time">Year 3–5</div>
+        <div class="wt-spine"><div class="wt-dot"></div><div class="wt-line"></div></div>
+        <div class="wt-card">
+          <div class="wt-card-title">Genitourinary Tuberculosis</div>
+          <div class="wt-card-sub">Renal TB · Silent long-term sequela</div>
+          <ul class="sblist">
+            <li><b>Renal TB</b> — classically appears <b>3–5 years</b> after primary infection; one of the most delayed manifestations</li>
+            <li>Results from early haematogenous seeding of the renal cortex → dormant bacilli → reactivation years later</li>
+            <li>Presents as sterile pyuria, haematuria, recurrent UTI — "Sterile pyuria = TB until proven otherwise"</li>
+            <li>Can extend to ureter (strictures), bladder (contracted bladder), epididymis, seminal vesicles, fallopian tubes</li>
+            <li>Genital TB in females: commonest cause of TB-related infertility; endometrial TB → Asherman's syndrome</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- REMOTE / ADULT REACTIVATION -->
+      <div class="wt-row phase-remote">
+        <div class="wt-time">Years to Decades</div>
+        <div class="wt-spine"><div class="wt-dot"></div><div class="wt-line" style="background:var(--border)"></div></div>
+        <div class="wt-card">
+          <div class="wt-card-title">Adult-type Post-primary TB (Reactivation)</div>
+          <div class="wt-card-sub">Latent TB → endogenous reactivation</div>
+          <ul class="sblist">
+            <li><b>Endogenous reactivation</b> — dormant bacilli in healed Ghon focus or apical seedings reactivate when immunity declines (immunosuppression, DM, HIV, malnutrition, ageing)</li>
+            <li>Produces <b>post-primary (adult-type) PTB</b> — upper lobe, cavitary disease; characteristic of reactivation TB</li>
+            <li>5–10% lifetime risk of reactivation in HIV-negative individuals; annual risk 5–10% in HIV-positive</li>
+            <li>The <b>Simon's focus</b> — apical haematogenous seedlings from the early bacteraemia — are the typical site of reactivation in adults</li>
+            <li>This is why Wallgren's events are clinically important even in adults: the seeds of adult TB were sown during childhood primary infection</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- end wallgren-timeline -->
+  </div>
+
+  <!-- 5. PATHOGENESIS -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Pathogenesis — Steps in Primary TB</h2>
+    </div>
+    <div class="flow-wrap">
+      <div class="flow-title">Fig. 1 — Pathogenesis of Primary TB & Wallgren's Events</div>
+      <div class="flow">
+        <div class="fbox fbox-rose">Inhalation of MTB droplet nuclei (&lt;5 µm) → Deposition in alveoli (mid-zone lung)<small>Week 0: Silent implantation — NO symptoms, TST NEGATIVE</small></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-orange">Alveolar macrophages phagocytose MTB → Intracellular multiplication<small>Weeks 1–3: Bacilli multiply; spread via lymphatics to hilar nodes → Ghon focus + lymphangitis forms</small></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-yellow">Early bacteraemia ("occult dissemination") → Seeding of distant organs<small>Weeks 2–4: Bacilli seed apices (Simon's focus), kidneys, bone, meninges, liver — clinically silent at this stage</small></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-rose">Cell-mediated immunity (CMI) develops → TST converts POSITIVE<small>Weeks 3–8: Th1 response; IFN-γ, TNF-α; granuloma formation; erythema nodosum; phlyctenular conjunctivitis</small></div>
+        <div class="arrow">↓</div>
+        <div class="fork">
+          <div class="fork-item" style="background:rgba(63,185,80,.1);border:1px solid rgba(63,185,80,.3);color:var(--teal);">
+            <b>Adequate immunity</b>
+            <small>Healing: caseation → fibrosis → calcification → Ghon focus / Ranke complex. Dormant LTBI.</small>
+          </div>
+          <div class="fork-item" style="background:rgba(255,123,114,.1);border:1px solid rgba(255,123,114,.3);color:var(--red);">
+            <b>Inadequate immunity</b> (infant, malnourished, HIV)
+            <small>Progression: miliary TB / TBM (3–6 months); primary progressive pneumonia; dissemination</small>
+          </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-cyan">Late manifestations of seeded foci: Bone/joint TB (1–3 yrs) · Renal TB (3–5 yrs) · Adult reactivation PTB (years–decades)<small>Simon's focus (apical seeding) → reactivation with immunosuppression → post-primary PTB</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. GHON / RANKE -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Ghon's Focus, Ghon's Complex &amp; Ranke Complex</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Term</th><th>Components</th><th>Stage</th><th>CXR Appearance</th><th>Significance</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Ghon's Focus</td>
+            <td>Single parenchymal lesion (pneumonitis/caseation) in lung</td>
+            <td>Active primary (acute)</td>
+            <td>Small ill-defined opacity, mid-zone, subpleural; 1–2 cm</td>
+            <td>Initial infection site; may cavitate (rare in children); usually heals by calcification</td>
+          </tr>
+          <tr>
+            <td>Ghon's Complex (Primary Complex)</td>
+            <td>Ghon focus + ipsilateral hilar/mediastinal LN enlargement + lymphangitis</td>
+            <td>Active primary TB</td>
+            <td>"Dumb-bell" pattern — peripheral opacity + hilar mass; LN often larger than parenchymal lesion in children</td>
+            <td>Hallmark of primary TB; LN disproportionately enlarged; may compress bronchus → collapse/consolidation</td>
+          </tr>
+          <tr>
+            <td>Ranke Complex</td>
+            <td>Calcified Ghon focus + calcified ipsilateral hilar LN</td>
+            <td>Healed/old primary TB</td>
+            <td>Dense calcified nodule (1–2 cm) + calcified hilar nodes; often bilateral</td>
+            <td>Evidence of past primary infection; indicates healed LTBI; risk of reactivation if immunity declines</td>
+          </tr>
+          <tr>
+            <td>Simon's Foci</td>
+            <td>Apical haematogenous seedlings during primary bacteraemia</td>
+            <td>Early primary (silent)</td>
+            <td>Bilateral apical calcified nodules in adults (may not be visible acutely)</td>
+            <td>Classic site of adult-type reactivation TB; explains upper-lobe predilection of post-primary PTB</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 7. EARLY EVENTS DETAIL -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Early Events (0–8 Weeks) — Detailed</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Timepoint</th><th>Immunological Event</th><th>Pathological Event</th><th>Clinical / CXR Finding</th></tr></thead>
+        <tbody>
+          <tr><td>Day 1–7</td><td>Innate immunity: macrophage phagocytosis, neutrophil influx, IL-12 production</td><td>MTB intracellular multiplication in alveolar macrophages; initial pneumonitis</td><td>No symptoms; CXR normal; TST negative</td></tr>
+          <tr><td>Week 1–3</td><td>Antigen presentation via dendritic cells to lymph nodes; Th1 priming begins</td><td>Lymphatic spread to hilar nodes; early granuloma formation; lymphadenitis begins</td><td>Asymptomatic; CXR may show subtle hilar fullness; TST negative</td></tr>
+          <tr><td>Week 3–6</td><td>CMI established: IFN-γ, TNF-α secretion; granuloma matures; Langhans giant cells; central caseation</td><td>Ghon focus fully formed; caseous necrosis begins; hilar LN enlarging</td><td>TST converts POSITIVE; mild fever, malaise; erythema nodosum; phlyctenular conjunctivitis; CXR — Ghon complex visible</td></tr>
+          <tr><td>Week 6–8</td><td>CMI at peak; containment of primary focus; early calcification may begin in LN</td><td>Caseous necrosis in Ghon focus + LN; fibrosis begins at periphery</td><td>TST strongly positive; hypersensitivity manifestations peak; CXR — hilar LN clearly enlarged; primary complex visible</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="blist">
+      <li><b>Erythema nodosum:</b> Painful, raised, red/violaceous nodules; 1–5 cm; typically bilateral shins; appear at time of TST conversion (weeks 3–8); self-limiting 3–6 weeks; indicates adequate host immunity</li>
+      <li><b>Phlyctenular conjunctivitis:</b> Small grey-white nodule at corneal limbus; associated with hypersensitivity to MTB antigens; unilateral or bilateral; resolves with ATT; historically associated with primary TB in children</li>
+    </ul>
+  </div>
+
+  <!-- 8. MID-PHASE -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Mid-Phase Events (3–6 Months) — Complications</h2>
+    </div>
+    <div class="callout callout-red">
+      <strong>Most Dangerous Period</strong>
+      The 3–6 month window after primary infection is the period of HIGHEST risk for life-threatening dissemination — miliary TB and tuberculous meningitis. Infants (&lt;1 year) are at greatest risk. Untreated, mortality from TBM exceeds 25–30% even with treatment; sequelae in survivors are common.
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Complication</th><th>Timing</th><th>Mechanism</th><th>Clinical Features</th></tr></thead>
+        <tbody>
+          <tr><td>Miliary Tuberculosis</td><td>3–6 months</td><td>Haematogenous dissemination from caseous LN eroding into blood vessel → shower of bacilli to all organs</td><td>High fever, weight loss, hepatosplenomegaly; CXR — bilateral "millet seed" micronodules (1–2 mm); choroidal tubercles on fundoscopy (pathognomonic)</td></tr>
+          <tr><td>Tuberculous Meningitis (TBM)</td><td>3–6 months (peak)</td><td>Rupture of subependymal Rich focus (seeded during early bacteraemia) into subarachnoid space</td><td>Insidious onset: headache, vomiting, meningism, cranial nerve palsies, altered sensorium; CSF: lymphocytic pleocytosis, high protein, low glucose, low chloride; ADA elevated</td></tr>
+          <tr><td>Primary Progressive Pneumonia</td><td>1–6 months</td><td>Failure of host immunity to contain Ghon focus → enlargement, caseation, cavitation (rare in children)</td><td>Pneumonic consolidation on CXR; fever, cough, weight loss; smear may be positive</td></tr>
+          <tr><td>Epituberculosis (Collapse-Consolidation)</td><td>2–6 months</td><td>Enlarged caseous hilar LN compresses/erodes into bronchus → bronchial obstruction → lobar/segmental collapse + distal consolidation</td><td>Middle lobe or right upper lobe collapse commonest; CXR — "sail sign" / triangular opacity; may mimic pneumonia</td></tr>
+          <tr><td>TB Pleurisy</td><td>3–9 months</td><td>Subpleural Ghon focus ruptures into pleural space OR hypersensitivity reaction to MTB antigens</td><td>Unilateral exudative effusion; lymphocytic; ADA &gt;40 IU/L; protein &gt;3 g/dL; LDH elevated; smear usually negative; pleural biopsy diagnostic</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 9. LATE EVENTS -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title">Late Events (6–12 Months)</h2>
+    </div>
+    <ul class="blist">
+      <li><b>Pericardial TB:</b> Haematogenous or direct extension from mediastinal LN → pericardial effusion; presents as muffled heart sounds, pulsus paradoxus, raised JVP; ECG — low voltage, ST changes; risk of constrictive pericarditis months to years later</li>
+      <li><b>TB of bones and joints:</b> Onset 6 months to 3 years; Pott's disease (vertebral TB) most common — lower thoracic / upper lumbar vertebrae; cold abscess; angular kyphosis; Pott's paraplegia from cord compression</li>
+      <li><b>Tuberculous dactylitis (Spina Ventosa):</b> TB of short tubular bones of hands/feet in children; painless fusiform swelling of digit; periosteal reaction; "blown-out" expansion of phalanx</li>
+      <li><b>Healing of primary complex:</b> Ghon focus undergoes fibrosis and calcification → calcified nodule visible on CXR (Ghon's calcified focus); hilar LN also calcifies → Ranke complex; most children heal completely</li>
+      <li><b>TB of lymph nodes (Scrofula):</b> Cervical chain most common; begins 3–6 months; may progress to collar-stud abscess (abscess pointing through cervical fascia); pathognomonic histology — caseating granulomas</li>
+    </ul>
+  </div>
+
+  <!-- 10. VERY LATE -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2 class="section-title">Very Late / Remote Events (&gt;1 Year)</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Manifestation</th><th>Typical Timing After Primary Infection</th><th>Mechanism</th><th>Key Features</th></tr></thead>
+        <tbody>
+          <tr><td>Renal TB</td><td>3–5 years (range 2–20 years)</td><td>Haematogenous seeding of renal cortex during primary bacteraemia → dormant focus → reactivation</td><td>Sterile pyuria; haematuria; ureteric strictures; contracted bladder; IVP — "moth-eaten" calyces; "putty kidney" (calcified)</td></tr>
+          <tr><td>Genital TB (Female)</td><td>3–10 years</td><td>Haematogenous spread to fallopian tubes → retrograde to endometrium</td><td>Infertility (most common presentation); menstrual irregularities; TB endometritis → Asherman's syndrome; diagnosed by endometrial biopsy / D&C culture</td></tr>
+          <tr><td>Post-primary (Adult) PTB</td><td>Years to decades (lifetime risk 5–10%)</td><td>Reactivation of Simon's foci (apical seedlings from primary bacteraemia) when immunity declines</td><td>Upper-lobe cavitary disease; smear-positive; differs from primary TB in pattern; typical "adult-type" TB</td></tr>
+          <tr><td>Adrenal TB</td><td>Years after primary</td><td>Haematogenous seeding of adrenal cortex</td><td>Addison's disease (bilateral adrenal destruction); hyperpigmentation, hypotension, hyponatraemia; CT — calcified adrenals</td></tr>
+          <tr><td>TB Peritonitis</td><td>Variable; often 3–5 years</td><td>Haematogenous / direct spread from mesenteric LN</td><td>Ascites (exudative); "doughy abdomen"; peritoneal thickening on CT/USG; ADA elevated in ascitic fluid; laparoscopy + biopsy diagnostic</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 11. CLINICAL SIGNIFICANCE -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2 class="section-title">Clinical Significance &amp; Applications of Wallgren's Table</h2>
+    </div>
+    <div class="two-col">
+      <div class="col-box rose-head">
+        <h4>Diagnostic Applications</h4>
+        <ul>
+          <li>Helps clinician <b>date the primary infection</b> backwards from the presenting complication (e.g., TBM at 4 months → primary infection ~4 months ago)</li>
+          <li>Guides TST/IGRA interpretation — negative TST early (&lt;3 weeks) does not exclude TB</li>
+          <li>Explains why renal TB presents years after the primary infection — haematogenous seeding is early, manifestation is delayed</li>
+          <li>Erythema nodosum + positive TST = recent primary infection even without pulmonary symptoms</li>
+          <li>Sterile pyuria in a patient with old calcified Ghon focus on CXR → strongly suggests renal TB</li>
+        </ul>
+      </div>
+      <div class="col-box cyan-head">
+        <h4>Preventive &amp; Public Health Applications</h4>
+        <ul>
+          <li><b>BCG vaccination</b>: Most effective if given before primary infection (at birth); protects against miliary TB and TBM (peak risk 3–6 months); does not prevent adult-type reactivation TB</li>
+          <li><b>Isoniazid Preventive Therapy (IPT)</b>: Must be given to contacts after excluding active TB; prevents progression from LTBI to active TB; window period of early bacteraemia is when IPT is most effective</li>
+          <li><b>Contact tracing</b>: Household contacts especially children &lt;5 years need TST at diagnosis and repeat at 8 weeks (window period) if initially negative</li>
+          <li>Guides TB preventive therapy timing in HIV-infected children — start IPT immediately after excluding active TB</li>
+        </ul>
+      </div>
+      <div class="col-box teal-head">
+        <h4>Factors That Modify the Timetable</h4>
+        <ul>
+          <li><b>Age:</b> Infants (&lt;1 year) — fastest progression, highest risk of miliary/TBM; older children — slower; adults — different pattern (post-primary)</li>
+          <li><b>HIV co-infection:</b> Accelerates all events; higher risk of dissemination at any stage; TST may be falsely negative</li>
+          <li><b>Malnutrition:</b> Impaired CMI → faster progression; India — undernutrition major modifier</li>
+          <li><b>Measles:</b> Causes temporary anergy (TST falsely negative); accelerates TB progression if concurrent</li>
+          <li><b>Immunosuppression:</b> Steroids, anti-TNF, transplant → reactivation at any time</li>
+        </ul>
+      </div>
+      <div class="col-box yellow-head">
+        <h4>BCG &amp; Wallgren's Events</h4>
+        <ul>
+          <li>BCG effective against: miliary TB (86% protection) · TBM (73–86% protection) · Primary complex (50–80%)</li>
+          <li>BCG does NOT reliably protect against: adult-type PTB · renal TB · reactivation disease</li>
+          <li>BCG converts TST to positive — must be interpreted carefully; IGRA distinguishes BCG from true infection</li>
+          <li>BCG-IRIS: BCG site swelling in HIV-infected infants on ART — follows Wallgren pattern</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. SUMMARY + MNEMONIC -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2 class="section-title">Summary &amp; Mnemonic</h2>
+    </div>
+
+    <!-- Quick reference summary table -->
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Time After Primary Infection</th><th>Key Event</th><th>Clinical Manifestation</th><th>Risk Level</th></tr></thead>
+        <tbody>
+          <tr><td>Week 1–3</td><td>Implantation, Ghon focus forming, occult bacteraemia</td><td>Asymptomatic; TST negative</td><td><span class="tag tag-green">Silent</span></td></tr>
+          <tr><td>Week 3–8</td><td>TST conversion; CMI established; granuloma formation</td><td>Erythema nodosum; phlyctenular conjunctivitis; mild fever; TST positive</td><td><span class="tag tag-yellow">Low</span></td></tr>
+          <tr><td>Month 3–6</td><td>Peak haematogenous dissemination risk</td><td>Miliary TB; TBM; primary progressive pneumonia; epituberculosis</td><td><span class="tag tag-red">HIGHEST</span></td></tr>
+          <tr><td>Month 3–9</td><td>Pleural / lymph node involvement</td><td>TB pleurisy; superficial lymphadenitis (scrofula); erythema nodosum</td><td><span class="tag tag-orange">High</span></td></tr>
+          <tr><td>Month 6–12</td><td>Healing or early bone/pericardial TB</td><td>Calcification begins; Pott's disease onset; pericardial effusion</td><td><span class="tag tag-yellow">Moderate</span></td></tr>
+          <tr><td>Year 1–3</td><td>Skeletal TB</td><td>Pott's disease; hip/knee TB; dactylitis</td><td><span class="tag tag-yellow">Moderate</span></td></tr>
+          <tr><td>Year 3–5</td><td>Genitourinary TB</td><td>Renal TB (sterile pyuria); genital TB; infertility</td><td><span class="tag tag-blue">Late</span></td></tr>
+          <tr><td>Years–Decades</td><td>Reactivation (endogenous) from Simon's foci</td><td>Adult-type post-primary PTB; adrenal TB (Addison's); peritoneal TB</td><td><span class="tag tag-cyan">Variable</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:14px;font-weight:600;color:var(--text);margin:20px 0 10px;">Mnemonic — "WALLGREN" for Key Events</p>
+    <div class="mnemonic">
+      <div class="mn-letter">W</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Week 3–8 = TST converts</b> — tuberculin positivity; erythema nodosum; phlyctenular conjunctivitis; granuloma forms; CMI established</div>
+      <div class="mn-letter">A</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Apex seedlings (Simon's foci)</b> — haematogenous apical seedings during primary bacteraemia; site of future adult-type reactivation PTB decades later</div>
+      <div class="mn-letter">L</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Lymph nodes maximally enlarged at 3–6 months</b> — hilar LN compress bronchus → epituberculosis (collapse-consolidation); scrofula (superficial LN)</div>
+      <div class="mn-letter">L</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Life-threatening events at 3–6 months</b> — miliary TB and TBM peak here; especially in infants; BCG protects against both (73–86% efficacy)</div>
+      <div class="mn-letter">G</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Ghon focus → Ranke complex</b> — parenchymal lesion + hilar LN → both calcify → Ranke complex; evidence of healed primary infection on CXR</div>
+      <div class="mn-letter">R</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Renal TB: 3–5 years</b> — latest manifestation; sterile pyuria; haematogenous seeding during primary bacteraemia; "sterile pyuria = TB until proven otherwise"</div>
+      <div class="mn-letter">E</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Erythema nodosum = fresh primary</b> — marks the moment of tuberculin conversion (3–8 weeks post-infection); indicates active primary TB even without pulmonary symptoms</div>
+      <div class="mn-letter">N</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Never forget bone TB (1–3 years)</b> — Pott's disease (lower thoracic/upper lumbar); hip, knee, dactylitis; results from seedings during early primary bacteraemia</div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <div>References: Wallgren A. "The timetable of tuberculosis." Tubercle 1948;29(11):245–51 · Crofton &amp; Douglas's Respiratory Diseases 6th ed. · Sharma SK, Mohan A. Tuberculosis 3rd ed. · Nelson Textbook of Paediatrics 21st ed. · IAP Guidelines on Paediatric TB 2019 · WHO Guidelines on Management of TB in Children 2022 · Starke JR. Paediatric tuberculosis — Time for a new approach. Tuberculosis 2003</div>
+  <div style="margin-top:6px;color:var(--border);">Respiratory Medicine / Paediatrics · 10-Mark Structured Answer · Wallgren's Timetable of Primary Tuberculosis</div>
+</footer>
+
+</body>
+</html>
