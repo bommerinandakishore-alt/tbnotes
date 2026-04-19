@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIV-TB Co-infection — 10-Mark Structured Answer | Respiratory Medicine</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0d1117;
+    --bg2:       #161b22;
+    --bg3:       #1c2230;
+    --border:    #30363d;
+    --border2:   #21262d;
+    --accent:    #58a6ff;
+    --accent2:   #3fb950;
+    --accent3:   #f78166;
+    --accent4:   #e3b341;
+    --accent5:   #bc8cff;
+    --text:      #e6edf3;
+    --text2:     #8b949e;
+    --text3:     #c9d1d9;
+    --red:       #ff7b72;
+    --orange:    #ffa657;
+    --teal:      #39d353;
+    --purple:    #d2a8ff;
+    --head-font: 'Playfair Display', serif;
+    --body-font: 'Sora', sans-serif;
+    --mono-font: 'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text3);
+    font-family: var(--body-font);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0d1117 0%, #131a24 50%, #0d1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 0 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(255,123,114,.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-family: var(--mono-font);
+    font-size: 11px;
+    letter-spacing: .12em;
+    color: var(--red);
+    background: rgba(255,123,114,.1);
+    border: 1px solid rgba(255,123,114,.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: var(--head-font);
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -.01em;
+    line-height: 1.2;
+    max-width: 820px;
+    margin: 0 auto 12px;
+    padding: 0 24px;
+  }
+  .hero h1 .hl-red  { color: var(--red); }
+  .hero h1 .hl-blue { color: var(--accent); }
+  .hero-sub {
+    font-size: 14px;
+    color: var(--text2);
+    font-family: var(--mono-font);
+    letter-spacing: .05em;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .hero-badge {
+    font-size: 12px;
+    font-family: var(--mono-font);
+    color: var(--text2);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 12px;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 36px 0 44px;
+    position: relative;
+  }
+  .toc::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 20px; bottom: 20px;
+    width: 3px;
+    background: linear-gradient(180deg, var(--red), var(--accent));
+    border-radius: 2px;
+  }
+  .toc h3 {
+    font-family: var(--mono-font);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 14px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 32px;
+  }
+  @media(max-width:600px){ .toc-grid { grid-template-columns: 1fr; } }
+  .toc a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color .2s;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    padding: 2px 0;
+  }
+  .toc a:hover { color: var(--accent); }
+  .toc-num {
+    font-family: var(--mono-font);
+    font-size: 11px;
+    color: var(--red);
+    min-width: 26px;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 52px; scroll-margin-top: 24px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .section-num {
+    font-family: var(--mono-font);
+    font-size: 11px;
+    color: var(--red);
+    background: rgba(255,123,114,.08);
+    border: 1px solid rgba(255,123,114,.22);
+    border-radius: 6px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+  .section-title {
+    font-family: var(--head-font);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    flex: 1;
+  }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: 0 10px 10px 0;
+    padding: 16px 22px;
+    margin: 14px 0;
+    font-size: 14px;
+    border-left: 3px solid;
+  }
+  .callout-red    { background: rgba(255,123,114,.07); border-color: var(--red);    color: var(--text3); }
+  .callout-blue   { background: rgba(88,166,255,.07);  border-color: var(--accent); color: var(--text3); }
+  .callout-teal   { background: rgba(63,185,80,.07);   border-color: var(--teal);   color: var(--text3); }
+  .callout-orange { background: rgba(255,166,87,.07);  border-color: var(--orange); color: var(--text3); }
+  .callout-purple { background: rgba(210,168,255,.07); border-color: var(--purple); color: var(--text3); }
+  .callout strong { display: block; margin-bottom: 5px; font-size: 12px; font-family: var(--mono-font); letter-spacing: .05em; text-transform: uppercase; }
+  .callout-red strong    { color: var(--red); }
+  .callout-blue strong   { color: var(--accent); }
+  .callout-teal strong   { color: var(--teal); }
+  .callout-orange strong { color: var(--orange); }
+  .callout-purple strong { color: var(--purple); }
+
+  /* ── BULLET LIST ── */
+  .blist { list-style: none; padding: 0; }
+  .blist li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(48,54,61,.5);
+    font-size: 14px;
+    color: var(--text3);
+  }
+  .blist li:last-child { border-bottom: none; }
+  .blist li::before {
+    content: '›';
+    color: var(--red);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+  .blist li b { color: var(--text); }
+
+  /* sub-bullets */
+  .sblist { list-style: none; padding: 0; margin: 4px 0 4px 18px; }
+  .sblist li { display: flex; gap: 8px; align-items: baseline; font-size: 13px; color: var(--text2); padding: 2px 0; }
+  .sblist li::before { content: '–'; color: var(--border); flex-shrink: 0; }
+
+  /* ── TABLES ── */
+  .tbl-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead th {
+    background: var(--bg3);
+    color: var(--text);
+    font-family: var(--body-font);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr { border-bottom: 1px solid var(--border2); transition: background .15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: rgba(22,27,34,.6); }
+  tbody tr:hover { background: rgba(255,123,114,.04); }
+  td { padding: 11px 16px; vertical-align: top; color: var(--text3); line-height: 1.6; }
+  td:first-child { color: var(--text); font-weight: 600; }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-family: var(--mono-font);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-weight: 600;
+  }
+  .tag-red    { background: rgba(255,123,114,.12); color: var(--red);    border: 1px solid rgba(255,123,114,.3); }
+  .tag-orange { background: rgba(255,166,87,.12);  color: var(--orange); border: 1px solid rgba(255,166,87,.3); }
+  .tag-green  { background: rgba(63,185,80,.12);   color: var(--teal);   border: 1px solid rgba(63,185,80,.3); }
+  .tag-blue   { background: rgba(88,166,255,.12);  color: var(--accent); border: 1px solid rgba(88,166,255,.3); }
+  .tag-purple { background: rgba(210,168,255,.12); color: var(--purple); border: 1px solid rgba(210,168,255,.3); }
+
+  /* ── FLOWCHART ── */
+  .flow-wrap {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 20px;
+    margin: 16px 0;
+  }
+  .flow-title {
+    font-family: var(--mono-font);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text2);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .flow { display: flex; flex-direction: column; align-items: center; }
+  .fbox {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+  .fbox small { display: block; font-weight: 400; font-size: 12px; opacity: .82; margin-top: 3px; }
+  .fbox-red    { background: rgba(255,123,114,.1);  border: 1px solid rgba(255,123,114,.35); color: var(--red); }
+  .fbox-blue   { background: rgba(88,166,255,.1);   border: 1px solid rgba(88,166,255,.35);  color: var(--accent); }
+  .fbox-teal   { background: rgba(63,185,80,.1);    border: 1px solid rgba(63,185,80,.35);   color: var(--teal); }
+  .fbox-orange { background: rgba(255,166,87,.1);   border: 1px solid rgba(255,166,87,.35);  color: var(--orange); }
+  .fbox-purple { background: rgba(210,168,255,.1);  border: 1px solid rgba(210,168,255,.35); color: var(--purple); }
+  .fbox-dark   { background: var(--bg3); border: 1px solid var(--border); color: var(--text3); }
+
+  .arrow { font-size: 22px; color: var(--border); line-height: 1; margin: 5px 0; }
+  .arrow-lbl { font-size: 11px; font-family: var(--mono-font); color: var(--text2); margin: -2px 0 4px; }
+
+  .fork {
+    display: flex;
+    gap: 14px;
+    width: 100%;
+    max-width: 640px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 4px 0;
+  }
+  .fork-item {
+    flex: 1;
+    min-width: 160px;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .fork-item small { display: block; font-weight: 400; font-size: 11.5px; opacity: .85; margin-top: 4px; }
+
+  /* ── BIDIRECTIONAL DIAGRAM ── */
+  .bidir {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 12px;
+    align-items: center;
+    margin: 16px 0;
+  }
+  .bidir-box {
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .bidir-hiv  { background: rgba(255,123,114,.1); border: 1px solid rgba(255,123,114,.3); }
+  .bidir-tb   { background: rgba(88,166,255,.1);  border: 1px solid rgba(88,166,255,.3); }
+  .bidir-arrows {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 26px;
+    color: var(--text2);
+  }
+  .bidir-lbl { font-size: 11px; font-family: var(--mono-font); color: var(--text2); }
+  .bidir-title { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+  .bidir-hiv .bidir-title { color: var(--red); }
+  .bidir-tb  .bidir-title { color: var(--accent); }
+  .bidir-pts { list-style: none; font-size: 12.5px; color: var(--text3); text-align: left; }
+  .bidir-pts li { padding: 2px 0; display: flex; gap: 6px; }
+  .bidir-pts li::before { content: '·'; color: var(--text2); flex-shrink: 0; }
+
+  /* ── STAT CARDS ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .stat-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .stat-card.red::after    { background: var(--red); }
+  .stat-card.blue::after   { background: var(--accent); }
+  .stat-card.teal::after   { background: var(--teal); }
+  .stat-card.orange::after { background: var(--orange); }
+  .stat-card.purple::after { background: var(--purple); }
+  .stat-num {
+    font-family: var(--head-font);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .stat-card.red .stat-num    { color: var(--red); }
+  .stat-card.blue .stat-num   { color: var(--accent); }
+  .stat-card.teal .stat-num   { color: var(--teal); }
+  .stat-card.orange .stat-num { color: var(--orange); }
+  .stat-card.purple .stat-num { color: var(--purple); }
+  .stat-lbl { font-size: 12px; color: var(--text2); line-height: 1.4; }
+
+  /* ── PATH CARDS ── */
+  .path-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .path-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .path-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .path-card.red::before    { background: var(--red); }
+  .path-card.blue::before   { background: var(--accent); }
+  .path-card.teal::before   { background: var(--teal); }
+  .path-card.orange::before { background: var(--orange); }
+  .path-card.purple::before { background: var(--purple); }
+  .path-icon { font-size: 20px; margin-bottom: 8px; }
+  .path-label {
+    font-size: 11px;
+    font-family: var(--mono-font);
+    color: var(--text2);
+    letter-spacing: .05em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .path-text { font-size: 13px; color: var(--text3); line-height: 1.5; }
+
+  /* ── TWO-COLUMN GRID ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  @media(max-width:580px){ .two-col { grid-template-columns: 1fr; } }
+  .col-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .col-box h4 {
+    font-size: 12px;
+    font-family: var(--mono-font);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 10px;
+  }
+  .col-box.red-head h4  { color: var(--red); }
+  .col-box.blue-head h4 { color: var(--accent); }
+  .col-box ul { list-style: none; }
+  .col-box ul li { font-size: 13px; color: var(--text3); padding: 3px 0; display: flex; gap: 8px; }
+  .col-box.red-head  ul li::before { content: '›'; color: var(--red); }
+  .col-box.blue-head ul li::before { content: '›'; color: var(--accent); }
+
+  /* ── DRUG TABLE ── */
+  .drug-pill {
+    display: inline-block;
+    background: rgba(88,166,255,.1);
+    border: 1px solid rgba(88,166,255,.25);
+    color: var(--accent);
+    font-family: var(--mono-font);
+    font-size: 11px;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin: 1px 2px;
+    white-space: nowrap;
+  }
+  .drug-pill.warn { background: rgba(255,166,87,.1); border-color: rgba(255,166,87,.3); color: var(--orange); }
+  .drug-pill.danger { background: rgba(255,123,114,.1); border-color: rgba(255,123,114,.3); color: var(--red); }
+
+  /* ── LANDMARK STUDY CARDS ── */
+  .study-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .study-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .study-name { font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 4px; }
+  .study-ref  { font-family: var(--mono-font); font-size: 11px; color: var(--red); margin-bottom: 6px; }
+  .study-pop  { font-size: 12px; color: var(--text2); margin-bottom: 8px; }
+  .study-find { font-size: 13px; color: var(--text3); line-height: 1.55; }
+
+  /* ── MNEMONIC ── */
+  .mnemonic {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 16px 0;
+  }
+  .mn-letter {
+    background: var(--bg3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--head-font);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--red);
+    border-bottom: 1px solid var(--border);
+    padding: 14px;
+  }
+  .mn-text {
+    padding: 13px 18px;
+    font-size: 13.5px;
+    color: var(--text3);
+    border-bottom: 1px solid var(--border2);
+    border-left: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+  .mn-text:last-child { border-bottom: none; }
+  .mn-letter:last-of-type { border-bottom: none; }
+
+  /* ── PRINT ── */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 24px;
+    text-align: center;
+    color: var(--text2);
+    font-size: 12px;
+    font-family: var(--mono-font);
+    line-height: 1.8;
+    max-width: 1020px;
+    margin: 0 auto;
+  }
+
+  @media print {
+    body { background: white; color: #222; }
+    .hero { background: white; border-bottom: 2px solid #c0392b; }
+    .hero h1 { color: #1a1a1a; }
+    .hero-tag { color: #c0392b; background: #fff5f5; border-color: #c0392b; }
+    .toc, .callout, .path-card, .col-box, .stat-card, .study-card, .flow-wrap { background: #f8f9fa; border-color: #dee2e6; }
+    td, .blist li, .path-text, .study-find { color: #333; }
+    thead th { background: #e9ecef; color: #333; }
+    .section-title { color: #111; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">10-Mark Structured Answer · Respiratory Medicine</div>
+  <h1><span class="hl-red">HIV</span> &amp; <span class="hl-blue">Tuberculosis</span> Co-infection</h1>
+  <div class="hero-sub">Epidemiology · Pathogenesis · Diagnosis · Treatment · Drug Interactions</div>
+  <div class="hero-meta">
+    <span class="hero-badge">~1000 words</span>
+    <span class="hero-badge">12 sections</span>
+    <span class="hero-badge">Flowcharts + Tables</span>
+    <span class="hero-badge">NTEP / WHO / NACO guidelines</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <div class="toc-grid">
+      <a href="#s1"><span class="toc-num">01</span> Introduction & Definition</a>
+      <a href="#s7"><span class="toc-num">07</span> Radiological Features</a>
+      <a href="#s2"><span class="toc-num">02</span> Epidemiology</a>
+      <a href="#s8"><span class="toc-num">08</span> Diagnosis</a>
+      <a href="#s3"><span class="toc-num">03</span> Bidirectional Pathogenesis</a>
+      <a href="#s9"><span class="toc-num">09</span> Treatment — ATT & ART Timing</a>
+      <a href="#s4"><span class="toc-num">04</span> Effect of HIV on TB (Flowchart)</a>
+      <a href="#s10"><span class="toc-num">10</span> Drug Interactions — Rifamycins & ART</a>
+      <a href="#s5"><span class="toc-num">05</span> Effect of TB on HIV</a>
+      <a href="#s11"><span class="toc-num">11</span> Special Situations & IRIS</a>
+      <a href="#s6"><span class="toc-num">06</span> Clinical Manifestations</a>
+      <a href="#s12"><span class="toc-num">12</span> Landmark Trials & Summary</a>
+    </div>
+  </div>
+
+  <!-- 1. INTRO -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Introduction &amp; Definition</h2>
+    </div>
+    <ul class="blist">
+      <li>HIV-TB co-infection = presence of <b>both HIV infection</b> (active or latent) <b>and tuberculosis</b> (latent or active) in the same individual</li>
+      <li>Called the <b>"Deadly Duet"</b> — each disease accelerates the other's progression</li>
+      <li>TB is the <b>most common opportunistic infection</b> in HIV-infected individuals globally and in India</li>
+      <li>TB is the <b>most common cause of death</b> among AIDS patients, killing approximately 1 in 3</li>
+      <li>Pulmonary TB = <b>WHO Clinical Stage 3</b>; Extrapulmonary TB = <b>WHO Clinical Stage 4</b></li>
+    </ul>
+    <div class="callout callout-red" style="margin-top:14px;">
+      <strong>Key Dictum — Management Priority</strong>
+      "Treat TB first, then ART" — initiate anti-TB treatment (ATT) immediately on TB diagnosis; start ART as early as possible within 2–8 weeks, depending on CD4 count
+    </div>
+  </div>
+
+  <!-- 2. EPIDEMIOLOGY -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Epidemiology</h2>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card red">
+        <div class="stat-num">10M</div>
+        <div class="stat-lbl">New TB cases globally per year (WHO 2020)</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="stat-num">9%</div>
+        <div class="stat-lbl">TB cases in PLHIV globally (WHO 2020)</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-num">5.7%</div>
+        <div class="stat-lbl">HIV prevalence among incident TB cases in India</div>
+      </div>
+      <div class="stat-card teal">
+        <div class="stat-num">50%</div>
+        <div class="stat-lbl">Lifetime TB risk in HIV-positive vs 5–10% in HIV-negative</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="stat-num">5–10%</div>
+        <div class="stat-lbl">Annual TB reactivation risk in HIV+ = lifetime risk in HIV−</div>
+      </div>
+    </div>
+    <ul class="blist" style="margin-top:8px;">
+      <li>India bears the <b>3rd highest burden</b> of HIV-associated TB globally; ~1,20,000 HIV-TB cases annually</li>
+      <li>Sub-Saharan Africa: <b>71% of new TB cases</b> and <b>84% of deaths</b> among HIV-TB globally</li>
+      <li>TB incidence among PLHIV peaked at <b>1.39 million in 2005</b>, now declining</li>
+      <li>India: Death rate among HIV-TB cases notified under RNTCP: <b>15–18%</b></li>
+      <li>HIV-TB deaths halved between 2004–2017 due to expanding ART access</li>
+    </ul>
+  </div>
+
+  <!-- 3. BIDIRECTIONAL PATHOGENESIS -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Bidirectional Pathogenesis</h2>
+    </div>
+    <div class="bidir">
+      <div class="bidir-box bidir-hiv">
+        <div class="bidir-title">HIV → worsens TB</div>
+        <ul class="bidir-pts">
+          <li>Kills CD4+ T-cells within granulomas</li>
+          <li>Impairs macrophage MTB killing</li>
+          <li>Reduces MTB-specific Th1 responses (IFN-γ, TNF-α, IL-2)</li>
+          <li>Depletes BAL fluid CD4+ cells</li>
+          <li>Disrupts granuloma architecture</li>
+          <li>Increases reactivation + reinfection risk</li>
+          <li>Favours primary TB progression after exposure</li>
+        </ul>
+      </div>
+      <div class="bidir-arrows">
+        <span style="color:var(--red);font-size:22px;">⇄</span>
+        <span class="bidir-lbl" style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;letter-spacing:.08em;text-align:center;">BIDIRECTIONAL</span>
+      </div>
+      <div class="bidir-box bidir-tb">
+        <div class="bidir-title">TB → worsens HIV</div>
+        <ul class="bidir-pts">
+          <li>Increases plasma HIV viremia (HIV RNA ↑)</li>
+          <li>Upregulates co-receptors CCR5 &amp; CXCR4 → more HIV entry</li>
+          <li>Immune activation → more CD4 cells as HIV targets</li>
+          <li>Higher HIV loads in TB-involved lungs (BAL) and pleural fluid</li>
+          <li>Accelerates progression to AIDS and death</li>
+          <li>Viremia persists despite ATT (especially in Africa)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout callout-orange">
+      <strong>Net Result</strong>
+      TB doubles HIV progression risk to AIDS/death. HIV doubles TB risk within the first year of seroconversion, and annual risk of active TB in HIV+ (5–10%) equals the <em>lifetime</em> risk in an HIV-negative individual.
+    </div>
+  </div>
+
+  <!-- 4. EFFECT OF HIV ON TB — FLOWCHART -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Effect of HIV on TB — Immunopathogenesis Flowchart</h2>
+    </div>
+    <div class="flow-wrap">
+      <div class="flow-title">Fig. 1 — How HIV Disrupts TB Immunity: Step-by-Step</div>
+      <div class="flow">
+        <div class="fbox fbox-red">HIV Infection → Progressive CD4+ T-cell Depletion<small>MTB-specific memory CD4 T-cells (IFN-γ releasing) are lost within 3 months of HIV seroconversion</small></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-orange">Granuloma Disruption<small>HIV enters granuloma → kills activated T-cells → macrophage dysfunction → ↓ TNF-dependent apoptosis of MTB-infected macrophages</small></div>
+        <div class="arrow">↓</div>
+        <div class="fork">
+          <div class="fork-item" style="background:rgba(255,123,114,.1);border:1px solid rgba(255,123,114,.3);color:var(--red);">
+            Reactivation of Latent TB
+            <small>Disrupted granuloma → MTB escapes → active TB</small>
+          </div>
+          <div class="fork-item" style="background:rgba(255,166,87,.1);border:1px solid rgba(255,166,87,.3);color:var(--orange);">
+            Accelerated Primary TB
+            <small>Rapid progression after new exposure</small>
+          </div>
+          <div class="fork-item" style="background:rgba(210,168,255,.1);border:1px solid rgba(210,168,255,.3);color:var(--purple);">
+            Exogenous Reinfection
+            <small>Higher risk post-successful ATT</small>
+          </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-dark">Atypical TB presentation: smear-negative, lower lobe, no cavitation, disseminated / miliary TB more common<small>As CD4 falls below 200 → primary TB pattern predominates</small></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-blue">MDR-TB / XDR-TB outbreaks more common in HIV-positive populations<small>Sub-therapeutic drug levels + poor adherence + immune escape → drug resistance</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. EFFECT OF TB ON HIV -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Effect of TB on HIV Disease</h2>
+    </div>
+    <div class="path-grid">
+      <div class="path-card red">
+        <div class="path-icon">🔺</div>
+        <div class="path-label">HIV Viremia ↑</div>
+        <div class="path-text">TB co-infection significantly raises plasma HIV RNA. Viremia declines after effective ATT but may persist at high levels in some African cohorts</div>
+      </div>
+      <div class="path-card orange">
+        <div class="path-icon">🔑</div>
+        <div class="path-label">CCR5 / CXCR4 Upregulation</div>
+        <div class="path-text">MTB-induced increase in co-receptor expression on CD4+ cells → increased HIV entry, replication, and viraemia</div>
+      </div>
+      <div class="path-card blue">
+        <div class="path-icon">⚡</div>
+        <div class="path-label">Immune Activation</div>
+        <div class="path-text">Generalised activation from TB increases proportion of CD4 cells that are preferential HIV targets → accelerated viral replication</div>
+      </div>
+      <div class="path-card purple">
+        <div class="path-icon">💀</div>
+        <div class="path-label">Progression to AIDS</div>
+        <div class="path-text">TB is associated with increased risk of progression to AIDS and death. TB-associated deaths classified as HIV deaths (ICD-10)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. CLINICAL MANIFESTATIONS -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Clinical Manifestations</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>Feature</th>
+          <th>Early HIV (CD4 &gt;200)</th>
+          <th>Late HIV (CD4 &lt;200)</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Clinical pattern</td><td>Resembles post-primary (reactivation) TB</td><td>Resembles primary TB</td></tr>
+          <tr><td>Sputum AFB smear</td><td>Often <span class="tag tag-green">Positive</span></td><td>Often <span class="tag tag-red">Negative</span> (smear-negative TB more common)</td></tr>
+          <tr><td>Chest X-ray</td><td>Upper lobe infiltrates, cavitation common</td><td>Lower lobe involvement, no cavitation; miliary pattern; normal CXR possible</td></tr>
+          <tr><td>Lymphadenopathy</td><td>Less common</td><td>Prominent intra-thoracic + peripheral LN</td></tr>
+          <tr><td>Extrapulmonary TB</td><td>~20% (similar to HIV-negative)</td><td><b>45–56%</b> (India data) — lymph nodes, pleura, CNS, bone marrow, genitourinary</td></tr>
+          <tr><td>Disseminated/Miliary TB</td><td>Uncommon</td><td><b>Much more common</b>; blood cultures positive in 49% if CD4 &lt;100</td></tr>
+          <tr><td>Haemoptysis</td><td>May occur (cavitary lesions)</td><td>Less frequent (fewer cavities)</td></tr>
+          <tr><td>Constitutional symptoms</td><td>Fever, weight loss, night sweats</td><td>May mimic HIV itself — TB often overlooked clinically</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-blue">
+      <strong>India Data (New Delhi Study — Agarwal et al.)</strong>
+      Among PLHIV with TB: Pulmonary TB alone = 38.4% | Only EPTB = 39.7% | Both PTB + EPTB = 21.9% at diagnosis. EPTB constituted 45–56% of all TB in PLHIV vs. 20% in HIV-negative persons.
+    </div>
+    <ul class="blist" style="margin-top:10px;">
+      <li>Most common EPTB sites: <b>Lymph nodes</b> (cervical 84%, axillary 18%), then pleura, CNS</li>
+      <li>Extrathoracic lymph nodes involved in <b>18–22%</b> of HIV-TB patients</li>
+      <li>Subclinical TB: Sputum culture-positive with no symptoms; more common in PLHIV on ART (South African study: 8.8% prevalence)</li>
+    </ul>
+  </div>
+
+  <!-- 7. RADIOLOGY -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Radiological Features</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Imaging</th><th>Finding</th><th>Significance</th></tr></thead>
+        <tbody>
+          <tr><td>CXR — Primary TB pattern</td><td>Pleural effusion, intrathoracic lymphadenopathy, lower/middle lobe consolidation without cavitation</td><td>36% of HIV-TB (especially CD4 &lt;200)</td></tr>
+          <tr><td>CXR — Post-primary pattern</td><td>Apical/posterior upper lobe consolidation, endobronchial spread, bronchiectasis</td><td>29% of HIV-TB (CD4 &gt;200)</td></tr>
+          <tr><td>CXR — Miliary</td><td>Diffuse bilateral micronodular pattern</td><td>4% of HIV-TB; more common with low CD4</td></tr>
+          <tr><td>CXR — Normal</td><td>No abnormality on plain film</td><td><b>14%</b> of HIV-TB; up to <b>21%</b> when CD4 &lt;200. Normal CXR does NOT exclude pulmonary TB in PLHIV</td></tr>
+          <tr><td>CT Thorax</td><td>Detects more lesions than CXR; hilar/mediastinal LN with central hypodensity and rim enhancement (pathognomonic of TB adenopathy in HIV)</td><td>Essential for suspected PTB with normal/non-specific CXR</td></tr>
+          <tr><td>CT Abdomen / USG</td><td>Intra-abdominal lymphadenopathy (central hypodensity), ascites, peritoneal thickening, splenic hypodensities</td><td>Abdominal TB in HIV</td></tr>
+          <tr><td>Gallium Scan</td><td>Tuberculous LN — "hot" on scan</td><td>73% PPV; 93% NPV for TB adenopathy</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 8. DIAGNOSIS -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Diagnosis</h2>
+    </div>
+    <div class="flow-wrap">
+      <div class="flow-title">Fig. 2 — Diagnostic Algorithm for TB in PLHIV (Intensified Case Finding)</div>
+      <div class="flow">
+        <div class="fbox fbox-blue">PLHIV at ART Centre — Screen at EVERY visit using 4-Symptom Complex<small>Adults: Current Cough · Fever · Weight Loss · Night Sweats &nbsp;|&nbsp; Children: Cough · Fever · Poor Weight Gain · TB Contact history</small></div>
+        <div class="arrow">↓</div>
+        <div class="fork">
+          <div class="fork-item" style="background:rgba(255,123,114,.1);border:1px solid rgba(255,123,114,.3);color:var(--red);">
+            Any symptom POSITIVE (4S+)
+            <small>Fast-track for TB evaluation</small>
+          </div>
+          <div class="fork-item" style="background:rgba(63,185,80,.1);border:1px solid rgba(63,185,80,.3);color:var(--teal);">
+            All symptoms NEGATIVE
+            <small>Assess for IPT contraindication → give IPT if eligible</small>
+          </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-orange">For 4S+ patients: CBNAAT (Xpert MTB/RIF) as FIRST-LINE test<small>Preferred over sputum smear microscopy in PLHIV · Results in &lt;2 hours · Also detects rifampicin resistance · Sensitivity 84% vs 53% for smear in PLHIV</small></div>
+        <div class="arrow">↓</div>
+        <div class="fork">
+          <div class="fork-item" style="background:rgba(255,123,114,.1);border:1px solid rgba(255,123,114,.3);color:var(--red);">TB Confirmed → Start ATT immediately</div>
+          <div class="fork-item" style="background:rgba(88,166,255,.1);border:1px solid rgba(88,166,255,.3);color:var(--accent);">TB not confirmed → Culture / LPA / Clinical judgment / Other OI workup</div>
+        </div>
+      </div>
+    </div>
+    <ul class="blist" style="margin-top:14px;">
+      <li><b>Sputum smear microscopy:</b> Poor sensitivity in PLHIV (median 52.8%) due to fewer organisms + fewer cavities. AFB smear positive = highly specific for MTB in HIV even in MAC-endemic areas</li>
+      <li><b>CBNAAT / Xpert MTB/RIF:</b> Preferred. Sensitivity 84%; also detects rifampicin resistance. Preferred for EPTB diagnosis too (CSF, pleural fluid, lymph node aspirate, urine)</li>
+      <li><b>Sputum culture (LJ / MGIT):</b> Gold standard; sensitivity 85–100%; takes 2–8 weeks; essential for drug susceptibility testing (DST)</li>
+      <li><b>Line Probe Assay (LPA):</b> Detects MDR-TB within 72 hours; used when resistance is suspected</li>
+      <li><b>Urine LAM (lipoarabinomannan):</b> WHO-recommended for hospitalised PLHIV with CD4 ≤100 cells/µl or seriously ill patients. Sensitivity 56%; specificity 88–99%. Point-of-care (25 min, 60 µl urine)</li>
+      <li><b>Lymph node FNA:</b> Positive in 77% of EPTB lymphadenopathy; biopsy + culture raises yield to 96%</li>
+      <li><b>Blood culture:</b> Positive in <b>49%</b> of disseminated TB with CD4 &lt;100 cells/mm³</li>
+      <li><b>TST (Tuberculin Skin Test):</b> Positivity defined at ≥5 mm induration in PLHIV. Frequently negative with low CD4. Not diagnostic for active TB in high-prevalence settings</li>
+    </ul>
+  </div>
+
+  <!-- 9. TREATMENT TIMING -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title">Treatment — ATT &amp; ART Timing</h2>
+    </div>
+    <div class="callout callout-teal">
+      <strong>Golden Rule</strong>
+      All HIV-TB co-infected patients should receive BOTH ATT and ART regardless of CD4 count. ATT is started first; ART follows based on CD4 timing to balance mortality reduction vs. IRIS risk.
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:14px;">
+      <table>
+        <thead><tr>
+          <th>CD4 Count</th>
+          <th>ART Timing after starting ATT</th>
+          <th>Rationale</th>
+          <th>Key Trial</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>CD4 &lt;50 cells/mm³</td>
+            <td><span class="tag tag-red">Within 2 weeks</span></td>
+            <td>Highest mortality risk; early ART reduces AIDS-defining illness and death</td>
+            <td>CAMELIA (NEJM 2011), SAPIT</td>
+          </tr>
+          <tr>
+            <td>CD4 50–200 cells/mm³</td>
+            <td><span class="tag tag-orange">Within 2–8 weeks</span></td>
+            <td>Balance between mortality reduction and IRIS risk</td>
+            <td>STRIDE (ACTG 5221)</td>
+          </tr>
+          <tr>
+            <td>CD4 &gt;200 cells/mm³</td>
+            <td><span class="tag tag-green">Within 8 weeks</span></td>
+            <td>Lower immediate mortality risk; later initiation reduces IRIS risk</td>
+            <td>SAPIT trial</td>
+          </tr>
+          <tr>
+            <td>CNS TB (any CD4)</td>
+            <td><span class="tag tag-purple">Delay 8 weeks</span></td>
+            <td>CNS-IRIS is life-threatening; risk outweighs benefit of early ART in TB meningitis</td>
+            <td>CAMELIA subgroup, WHO 2016</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:14px;font-weight:600;color:var(--text);margin:16px 0 8px;">ATT Regimen (same as HIV-negative adults):</p>
+    <ul class="blist">
+      <li>Intensive phase (2 months): <span class="drug-pill">Isoniazid (H)</span> <span class="drug-pill">Rifampicin (R)</span> <span class="drug-pill">Pyrazinamide (Z)</span> <span class="drug-pill">Ethambutol (E)</span> + <span class="drug-pill">Pyridoxine</span></li>
+      <li>Continuation phase (4 months): <span class="drug-pill">Isoniazid</span> <span class="drug-pill">Rifampicin</span></li>
+      <li><b>Daily ATT</b> is preferred over intermittent in HIV-TB (more efficacious; RNTCP/NTEP recommendation)</li>
+      <li>ART regimen for HIV-TB (first-line): <span class="drug-pill">TDF 300 mg</span> + <span class="drug-pill">3TC 300 mg</span> + <span class="drug-pill">EFV 600 mg</span> (single tablet at bedtime, under NACO/NTEP)</li>
+      <li>Co-trimoxazole preventive therapy (CPT) — for <b>all</b> HIV-TB patients regardless of CD4 count</li>
+      <li>Isoniazid Preventive Therapy (IPT) — for PLHIV without active TB after ruling out TB by 4S screening</li>
+    </ul>
+
+    <div class="flow-wrap" style="margin-top:16px;">
+      <div class="flow-title">Fig. 3 — Treatment Sequence Flowchart: HIV-TB Co-infection</div>
+      <div class="flow">
+        <div class="fbox fbox-red">TB Diagnosed in PLHIV</div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-orange">Start ATT Immediately (HRZE daily + Pyridoxine)<small>NTEP Category I or II as applicable | Daily DOT | Screen for drug resistance (CBNAAT / DST)</small></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-blue">Assess CD4 count + Screen for other OIs (Cryptococcus, CMV, MAC)<small>Also start Co-trimoxazole Preventive Therapy (CPT) for ALL HIV-TB patients</small></div>
+        <div class="arrow">↓</div>
+        <div class="fork">
+          <div class="fork-item" style="background:rgba(255,123,114,.1);border:1px solid rgba(255,123,114,.3);color:var(--red);">
+            CD4 &lt;50<br><small>ART within 2 weeks of ATT</small>
+          </div>
+          <div class="fork-item" style="background:rgba(255,166,87,.1);border:1px solid rgba(255,166,87,.3);color:var(--orange);">
+            CD4 50–200<br><small>ART within 2–8 weeks</small>
+          </div>
+          <div class="fork-item" style="background:rgba(63,185,80,.1);border:1px solid rgba(63,185,80,.3);color:var(--teal);">
+            CD4 &gt;200<br><small>ART within 8 weeks</small>
+          </div>
+          <div class="fork-item" style="background:rgba(210,168,255,.1);border:1px solid rgba(210,168,255,.3);color:var(--purple);">
+            CNS TB<br><small>Delay ART 8 weeks</small>
+          </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-teal">ART: TDF + 3TC + EFV 600 mg (preferred with rifampicin-based ATT)<small>EFV is preferred NNRTI; compatible with rifampicin | Monitor LFTs, adherence, viral load at 6 & 12 months</small></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-dark">Monitor: CD4 every 6 months | Viral load at 6 & 12 months then annually | Watch for IRIS, drug toxicity, treatment failure</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. DRUG INTERACTIONS -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2 class="section-title">Drug Interactions — Rifamycins &amp; ART</h2>
+    </div>
+    <div class="callout callout-red">
+      <strong>Mechanism</strong>
+      Rifampicin is a potent inducer of CYP3A4, CYP2B6, and P-glycoprotein → reduces plasma concentrations of PIs (by 35–92%) and NNRTIs (EFV by 22–26%, NVP by 31%). These sub-therapeutic levels risk HIV treatment failure and drug resistance emergence.
+    </div>
+    <div class="tbl-wrap" style="margin-top:14px;">
+      <table>
+        <thead><tr>
+          <th>ART Class / Drug</th>
+          <th>With Rifampicin</th>
+          <th>With Rifabutin</th>
+          <th>Recommendation</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>EFV (NNRTI)</td>
+            <td><span class="tag tag-green">Compatible</span> — AUC ↓22–26% only; EFV 600 mg/day adequate</td>
+            <td><span class="tag tag-orange">Use rifampicin</span> — rifabutin not preferred with EFV</td>
+            <td><b>EFV 600 mg + 2 NRTIs + rifampicin</b> = preferred HIV-TB regimen</td>
+          </tr>
+          <tr>
+            <td>NVP (NNRTI)</td>
+            <td><span class="tag tag-red">Avoid</span> — AUC ↓31–55%; higher virological failure &amp; hepatotoxicity</td>
+            <td><span class="tag tag-green">Rifabutin preferred</span> — no dose adjustment needed</td>
+            <td>If EFV contraindicated, use NVP twice daily without lead-in; or switch to rifabutin</td>
+          </tr>
+          <tr>
+            <td>DTG (INSTI)</td>
+            <td><span class="tag tag-orange">Double dose</span> — AUC ↓56%; increase DTG to 50 mg twice daily</td>
+            <td><span class="tag tag-green">No dose change</span> — rifabutin does not significantly affect DTG</td>
+            <td>DTG 50 mg BD if rifampicin used; DTG 50 mg OD if rifabutin used</td>
+          </tr>
+          <tr>
+            <td>RAL (INSTI)</td>
+            <td><span class="tag tag-orange">Double dose</span> — AUC ↓60%; increase RAL to 800 mg twice daily</td>
+            <td><span class="tag tag-green">No dose change</span> — rifabutin compatible</td>
+            <td>RAL 800 mg BD with rifampicin; RAL 400 mg BD with rifabutin</td>
+          </tr>
+          <tr>
+            <td>EVG, BIC, CAB (INSTIs)</td>
+            <td><span class="tag tag-red">Contraindicated</span> — rifampicin reduces levels significantly; doubling dose insufficient</td>
+            <td><span class="tag tag-red">Contraindicated</span> — rifabutin also significantly reduces concentrations</td>
+            <td>Avoid rifamycins with elvitegravir, bictegravir, cabotegravir</td>
+          </tr>
+          <tr>
+            <td>Boosted PIs (ATV/r, LPV/r, DRV/r)</td>
+            <td><span class="tag tag-red">Contraindicated</span> — PI levels ↓35–92%; high hepatotoxicity with super-boosting</td>
+            <td><span class="tag tag-green">Rifabutin 150 mg/day</span> — dose reduction to avoid toxicity (uveitis, neutropenia)</td>
+            <td><b>Substitute rifampicin with rifabutin 150 mg/day</b> when PI-based ART is used</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;font-weight:600;color:var(--text);margin:14px 0 6px;">Overlapping Toxicities (ATT + ART):</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Toxicity</th><th>ART drugs</th><th>ATT drugs</th></tr></thead>
+        <tbody>
+          <tr><td>Hepatotoxicity</td><td>NVP, EFV, all NRTIs, PIs</td><td>Isoniazid, Rifampicin, Pyrazinamide</td></tr>
+          <tr><td>Peripheral neuropathy</td><td>Stavudine (d4T), Didanosine (ddI)</td><td>Isoniazid (prevented by pyridoxine), Ethambutol</td></tr>
+          <tr><td>CNS effects</td><td>Efavirenz (dizziness, vivid dreams)</td><td>Isoniazid (seizures in INH toxicity), Cycloserine (MDR-TB)</td></tr>
+          <tr><td>Nephrotoxicity</td><td>Tenofovir (TDF) — renal tubular dysfunction</td><td>Aminoglycosides (Streptomycin, Amikacin)</td></tr>
+          <tr><td>GI intolerance</td><td>All ARVs (especially PIs)</td><td>All first-line ATT drugs; PAS (MDR)</td></tr>
+          <tr><td>Skin rash</td><td>NVP, EFV, Abacavir (ABC)</td><td>Isoniazid, Rifampicin, Pyrazinamide</td></tr>
+          <tr><td>Bone marrow suppression</td><td>Zidovudine (AZT)</td><td>Rifabutin, Rifampicin</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 11. SPECIAL SITUATIONS + IRIS -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2 class="section-title">Special Situations &amp; IRIS</h2>
+    </div>
+    <div class="two-col">
+      <div class="col-box red-head">
+        <h4>TB in PLHIV Already on ART (Table 21.2)</h4>
+        <ul>
+          <li>If on EFV-based ART → continue EFV + 2 NRTIs</li>
+          <li>If on NVP-based ART → substitute NVP with EFV</li>
+          <li>If on PI-based ART → substitute rifampicin with rifabutin 150 mg/day</li>
+          <li>If on RAL → increase RAL to 800 mg BD, or switch to rifabutin</li>
+          <li>If on DTG → increase DTG to 50 mg BD, or switch to rifabutin</li>
+        </ul>
+      </div>
+      <div class="col-box blue-head">
+        <h4>Pregnant Women with HIV-TB</h4>
+        <ul>
+          <li>Avoid EFV in first trimester (teratogenicity concern — though WHO now allows post-1st trimester)</li>
+          <li>Preferred: TDF + 3TC + DTG (or RAL) backbone</li>
+          <li>Avoid streptomycin (ototoxic to fetus)</li>
+          <li>ART reduces MTCT (mother-to-child transmission)</li>
+          <li>Avoid didanosine + stavudine combination</li>
+        </ul>
+      </div>
+      <div class="col-box red-head">
+        <h4>MDR-TB + HIV</h4>
+        <ul>
+          <li>Mortality very high without appropriate treatment</li>
+          <li>Treatment for ≥18 months after culture conversion</li>
+          <li>Bedaquiline: ↓ levels with EFV → WHO recommends NVP substitution; use with caution with boosted PIs</li>
+          <li>Shared toxicities: peripheral neuropathy (linezolid + NRTIs), GI (fluoroquinolones + PIs)</li>
+          <li>Refer to Chapter 49 (Drug-resistant TB) for detailed regimens</li>
+        </ul>
+      </div>
+      <div class="col-box blue-head">
+        <h4>IRIS in HIV-TB (Brief Summary)</h4>
+        <ul>
+          <li>Occurs in 7–43% of HIV-TB patients starting ART</li>
+          <li>Paradoxical IRIS: worsening of known TB after ART</li>
+          <li>Unmasking IRIS: occult TB revealed after ART start</li>
+          <li>Management: Continue ART; NSAIDs for mild; Prednisolone 1.5 mg/kg × 2 wks for moderate-severe</li>
+          <li>Prophylaxis: Prednisone 40 mg/day × 2 wks if CD4 &lt;100 + ART within 30 days ATT (Meintjes, NEJM 2010)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Special Scenario</th><th>Management Action</th></tr></thead>
+        <tbody>
+          <tr><td>Renal impairment (CrCl &lt;30 ml/min)</td><td>No adjustment for INH/RIF; Pyrazinamide 3× per week; Ethambutol 3× per week; Avoid TDF → use ABC-based backbone</td></tr>
+          <tr><td>Patients &gt;50 years / weight &lt;50 kg on streptomycin</td><td>Reduce dose to ≤750 mg/day; extend continuation phase by 3–6 months</td></tr>
+          <tr><td>Children (CLHIV) on PI + ATT</td><td>Super-boost lopinavir with ritonavir (LPV:RTV 1:1); efavirenz (children &gt;3 yrs) as alternative</td></tr>
+          <tr><td>TB episode &lt;6 months after ART start</td><td>NOT ART failure; adjust ART regimen for rifampicin compatibility</td></tr>
+          <tr><td>EPTB (extrapulmonary TB) after 6 months of ART</td><td>Consider ART failure; check viral load; do not switch ART prematurely if TB response is good</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 12. LANDMARK TRIALS + SUMMARY -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2 class="section-title">Landmark Trials &amp; Summary</h2>
+    </div>
+    <div class="study-grid">
+      <div class="study-card">
+        <div class="study-name">CAMELIA Trial</div>
+        <div class="study-ref">NEJM 2011 | Cambodia</div>
+        <div class="study-pop">HIV-TB (n=661), median CD4 = 25 cells/mm³</div>
+        <div class="study-find">ART at 2 weeks vs 8 weeks after ATT: <b>2-week arm reduced mortality by 38% (HR 0.62, p=0.006)</b>. IRIS more common in 2-week arm but manageable. Established early ART for CD4 &lt;50.</div>
+      </div>
+      <div class="study-card">
+        <div class="study-name">SAPIT Trial</div>
+        <div class="study-ref">NEJM 2010 | South Africa</div>
+        <div class="study-pop">HIV-TB adults (n=642)</div>
+        <div class="study-find">Integrated (early) ART significantly reduced AIDS/death vs. sequential (ART after TB completion). <b>64–95% reduction in mortality with ART during TB treatment.</b></div>
+      </div>
+      <div class="study-card">
+        <div class="study-name">STRIDE (ACTG 5221)</div>
+        <div class="study-ref">NEJM 2011 | Multi-country</div>
+        <div class="study-pop">HIV-TB (n=809)</div>
+        <div class="study-find">Early ART (within 2 weeks) vs later (8–12 weeks): early ART reduced AIDS/death only in patients with CD4 &lt;50. For CD4 &gt;50, later ART had lower IRIS with equivalent outcomes.</div>
+      </div>
+      <div class="study-card">
+        <div class="study-name">Meintjes et al. (IRIS Trial)</div>
+        <div class="study-ref">NEJM 2010 | South Africa</div>
+        <div class="study-pop">TB-IRIS (n=110), randomised</div>
+        <div class="study-find">Prednisolone 1.5 mg/kg × 2 weeks then 0.75 mg/kg × 2 weeks significantly <b>reduced IRIS hospitalisation and need for invasive procedures</b>. Established steroid regimen for TB-IRIS.</div>
+      </div>
+      <div class="study-card">
+        <div class="study-name">TEMPRANO / START</div>
+        <div class="study-ref">NEJM 2015 | Africa / Global</div>
+        <div class="study-pop">HIV-positive adults</div>
+        <div class="study-find">Both trials independently showed that ART initiation <b>irrespective of CD4 count</b> (Treat All policy) reduces severe HIV morbidity including TB. Established "Treat All" WHO 2015 recommendation.</div>
+      </div>
+      <div class="study-card">
+        <div class="study-name">CPT Meta-analysis</div>
+        <div class="study-ref">Harries et al. Lancet 2010</div>
+        <div class="study-pop">HIV-TB, sub-Saharan Africa</div>
+        <div class="study-find">Co-trimoxazole preventive therapy (CPT) <b>halves the mortality risk</b> in HIV-TB patients. Effective against PCP, Toxoplasma, diarrhoeal OIs. Recommended for ALL HIV-TB patients.</div>
+      </div>
+    </div>
+
+    <p style="font-size:14px;font-weight:600;color:var(--text);margin:20px 0 10px;">Summary Mnemonic — HIV-TB Co-infection</p>
+    <div class="mnemonic">
+      <div class="mn-letter">D</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Deadly Duet</b> — bidirectional interaction; each disease accelerates the other; TB = most common OI and cause of death in HIV/AIDS</div>
+      <div class="mn-letter">E</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">EPTB is common</b> — 45–56% in Indian PLHIV; always suspect TB regardless of presentation; CD4 &lt;200 → atypical / disseminated / miliary pattern</div>
+      <div class="mn-letter">A</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">ATT First, ART next</b> — start ATT immediately; ART within 2 weeks if CD4 &lt;50; within 2–8 weeks otherwise; delay 8 weeks only for CNS TB</div>
+      <div class="mn-letter">D</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Drug interactions</b> — rifampicin induces CYP3A4; EFV is safe with rifampicin; PIs need rifabutin; DTG/RAL need dose doubling with rifampicin</div>
+      <div class="mn-letter">L</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Look for IRIS</b> — 7–43% HIV-TB patients; paradoxical or unmasking; manage with corticosteroids; rarely interrupt ART</div>
+      <div class="mn-letter">Y</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Yes to CPT and IPT</b> — Co-trimoxazole for all HIV-TB; Isoniazid preventive therapy for PLHIV without active TB after 4S negative screening</div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <div>References: WHO Global TB Report 2020 · Blanc FX et al. NEJM 2011 (CAMELIA) · Abdool Karim SS et al. NEJM 2010 (SAPIT) · Havlir DV et al. NEJM 2011 (STRIDE) · Meintjes G et al. NEJM 2010 · Harries AD et al. Lancet 2010</div>
+  <div style="margin-top:6px;">Satyasri S &amp; Kiran LH, Textbook of Tuberculosis Chs. 20–21 · Rewari BB et al., TB &amp; NTM Diseases Ch. 35 · WHO/NACO/NTEP ART Guidelines 2020 · Standards for TB Care in India (SCTI) 2014</div>
+  <div style="margin-top:6px;color:var(--border);">Respiratory Medicine · 10-Mark Structured Answer · HIV-TB Co-infection</div>
+</footer>
+
+</body>
+</html>

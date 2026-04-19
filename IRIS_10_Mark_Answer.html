@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRIS — 10-Mark Structured Answer | Respiratory Medicine</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0d1117;
+    --bg2:       #161b22;
+    --bg3:       #1c2230;
+    --border:    #30363d;
+    --border2:   #21262d;
+    --accent:    #58a6ff;
+    --accent2:   #3fb950;
+    --accent3:   #f78166;
+    --accent4:   #e3b341;
+    --accent5:   #bc8cff;
+    --text:      #e6edf3;
+    --text2:     #8b949e;
+    --text3:     #c9d1d9;
+    --red:       #ff7b72;
+    --orange:    #ffa657;
+    --teal:      #39d353;
+    --purple:    #d2a8ff;
+    --head-font: 'Playfair Display', serif;
+    --body-font: 'Sora', sans-serif;
+    --mono-font: 'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text3);
+    font-family: var(--body-font);
+    font-size: 15px;
+    line-height: 1.75;
+    padding: 0;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0d1117 0%, #131a24 50%, #0d1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 0 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(88,166,255,.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-family: var(--mono-font);
+    font-size: 11px;
+    letter-spacing: .12em;
+    color: var(--accent);
+    background: rgba(88,166,255,.1);
+    border: 1px solid rgba(88,166,255,.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: var(--head-font);
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -.01em;
+    line-height: 1.2;
+    max-width: 780px;
+    margin: 0 auto 12px;
+    padding: 0 24px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-sub {
+    font-size: 14px;
+    color: var(--text2);
+    font-family: var(--mono-font);
+    letter-spacing: .05em;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .hero-badge {
+    font-size: 12px;
+    font-family: var(--mono-font);
+    color: var(--text2);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 12px;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 36px 0 44px;
+    position: relative;
+  }
+  .toc::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 20px; bottom: 20px;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent), var(--accent5));
+    border-radius: 2px;
+  }
+  .toc h3 {
+    font-family: var(--mono-font);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 32px;
+  }
+  @media(max-width:640px){ .toc-grid { grid-template-columns: 1fr; } }
+  .toc a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color .2s;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+  .toc a:hover { color: var(--accent); }
+  .toc-num { font-family: var(--mono-font); font-size: 11px; color: var(--accent); min-width: 24px; }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 52px;
+    scroll-margin-top: 24px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .section-num {
+    font-family: var(--mono-font);
+    font-size: 11px;
+    color: var(--accent);
+    background: rgba(88,166,255,.08);
+    border: 1px solid rgba(88,166,255,.2);
+    border-radius: 6px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+  .section-title {
+    font-family: var(--head-font);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    flex: 1;
+  }
+
+  /* ── DEFINITION BOX ── */
+  .def-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: var(--text3);
+    font-style: italic;
+  }
+  .def-box strong { font-style: normal; color: var(--accent); font-family: var(--mono-font); font-size: 12px; letter-spacing: .05em; display: block; margin-bottom: 6px; }
+
+  /* ── BULLET LIST ── */
+  .blist { list-style: none; padding: 0; }
+  .blist li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(48,54,61,.5);
+    font-size: 14px;
+    color: var(--text3);
+  }
+  .blist li:last-child { border-bottom: none; }
+  .blist li::before {
+    content: '›';
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+  .blist li b { color: var(--text); }
+
+  /* ── TABLES ── */
+  .tbl-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  thead th {
+    background: var(--bg3);
+    color: var(--text);
+    font-family: var(--body-font);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  thead th:first-child { border-radius: 10px 0 0 0; }
+  thead th:last-child  { border-radius: 0 10px 0 0; }
+  tbody tr { border-bottom: 1px solid var(--border2); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: rgba(22,27,34,.6); }
+  tbody tr:hover { background: rgba(56,139,253,.06); }
+  td { padding: 11px 16px; vertical-align: top; color: var(--text3); line-height: 1.6; }
+  td:first-child { color: var(--text); font-weight: 600; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-family: var(--mono-font);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-weight: 600;
+  }
+  .tag-red    { background: rgba(255,123,114,.12); color: var(--red);    border: 1px solid rgba(255,123,114,.25); }
+  .tag-orange { background: rgba(255,166,87,.12);  color: var(--orange); border: 1px solid rgba(255,166,87,.25); }
+  .tag-green  { background: rgba(63,185,80,.12);   color: var(--teal);   border: 1px solid rgba(63,185,80,.25); }
+  .tag-blue   { background: rgba(88,166,255,.12);  color: var(--accent); border: 1px solid rgba(88,166,255,.25); }
+  .tag-purple { background: rgba(210,168,255,.12); color: var(--purple); border: 1px solid rgba(210,168,255,.25); }
+
+  /* ── FLOWCHART ── */
+  .flow-wrap {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    margin: 16px 0;
+  }
+  .flow-title {
+    font-family: var(--mono-font);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text2);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .fbox {
+    width: 100%;
+    max-width: 560px;
+    border-radius: 8px;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    position: relative;
+  }
+  .fbox-blue   { background: rgba(88,166,255,.12);  border: 1px solid rgba(88,166,255,.35);  color: var(--accent); }
+  .fbox-teal   { background: rgba(63,185,80,.12);   border: 1px solid rgba(63,185,80,.35);   color: var(--teal); }
+  .fbox-orange { background: rgba(255,166,87,.12);  border: 1px solid rgba(255,166,87,.35);  color: var(--orange); }
+  .fbox-red    { background: rgba(255,123,114,.12); border: 1px solid rgba(255,123,114,.35); color: var(--red); }
+  .fbox-purple { background: rgba(210,168,255,.12); border: 1px solid rgba(210,168,255,.35); color: var(--purple); }
+  .fbox-dark   { background: var(--bg3);            border: 1px solid var(--border);          color: var(--text3); }
+
+  .arrow {
+    font-size: 22px;
+    color: var(--border);
+    line-height: 1;
+    margin: 4px 0;
+  }
+  .arrow-label {
+    font-size: 11px;
+    font-family: var(--mono-font);
+    color: var(--text2);
+  }
+
+  .fork {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: 640px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .fork-box {
+    flex: 1;
+    min-width: 180px;
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* ── PATHOGENESIS DIAGRAM ── */
+  .path-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .path-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .path-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .path-card.blue::before  { background: var(--accent); }
+  .path-card.teal::before  { background: var(--teal); }
+  .path-card.orange::before{ background: var(--orange); }
+  .path-card.purple::before{ background: var(--purple); }
+  .path-card.red::before   { background: var(--red); }
+  .path-icon { font-size: 22px; margin-bottom: 8px; }
+  .path-label {
+    font-size: 12px;
+    font-family: var(--mono-font);
+    color: var(--text2);
+    letter-spacing: .05em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .path-text { font-size: 13px; color: var(--text3); line-height: 1.5; }
+
+  /* ── MNEMONIC ── */
+  .mnemonic {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 16px 0;
+  }
+  .mnemonic-letter {
+    background: var(--bg3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--head-font);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding: 16px;
+  }
+  .mnemonic-letter:last-of-type { border-bottom: none; }
+  .mnemonic-text {
+    padding: 14px 18px;
+    font-size: 13.5px;
+    color: var(--text3);
+    border-bottom: 1px solid var(--border2);
+    border-left: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+  .mnemonic-text:last-child { border-bottom: none; }
+
+  /* ── SEVERITY CARDS ── */
+  .sev-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .sev-card {
+    border-radius: 10px;
+    padding: 18px 20px;
+    border: 1px solid;
+  }
+  .sev-mild   { border-color: rgba(63,185,80,.3);   background: rgba(63,185,80,.06); }
+  .sev-mod    { border-color: rgba(255,166,87,.3);  background: rgba(255,166,87,.06); }
+  .sev-severe { border-color: rgba(255,123,114,.3); background: rgba(255,123,114,.06); }
+  .sev-head {
+    font-family: var(--mono-font);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .sev-mild   .sev-head { color: var(--teal); }
+  .sev-mod    .sev-head { color: var(--orange); }
+  .sev-severe .sev-head { color: var(--red); }
+  .sev-body { font-size: 13px; color: var(--text3); line-height: 1.6; }
+  .sev-body li { margin-left: 16px; margin-bottom: 4px; }
+
+  /* ── LANDMARK STUDIES ── */
+  .study-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .study-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    position: relative;
+  }
+  .study-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .study-ref {
+    font-family: var(--mono-font);
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .study-pop {
+    font-size: 11px;
+    color: var(--text2);
+    margin-bottom: 8px;
+  }
+  .study-find {
+    font-size: 13px;
+    color: var(--text3);
+    line-height: 1.5;
+  }
+
+  /* ── EXCLUSION BOX ── */
+  .excl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media(max-width:540px){ .excl-grid { grid-template-columns: 1fr; } }
+  .excl-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--text3);
+  }
+  .excl-box h4 {
+    font-size: 11px;
+    font-family: var(--mono-font);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 8px;
+  }
+  .excl-box.must h4 { color: var(--teal); }
+  .excl-box.excl h4 { color: var(--red); }
+  .excl-box ul { list-style: none; }
+  .excl-box ul li { padding: 3px 0; display: flex; gap: 8px; }
+  .excl-box.must ul li::before { content: '✓'; color: var(--teal); }
+  .excl-box.excl  ul li::before { content: '✕'; color: var(--red); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 24px;
+    text-align: center;
+    color: var(--text2);
+    font-size: 12px;
+    font-family: var(--mono-font);
+    line-height: 1.8;
+    max-width: 1020px;
+    margin: 0 auto;
+  }
+
+  /* ── PRINT / SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  @media print {
+    body { background: white; color: black; }
+    .hero { background: white; border-bottom: 2px solid #2c5f8a; }
+    .hero h1 { color: #1f4e79; }
+    .hero h1 span, .hero-tag, .section-num { color: #2c5f8a; }
+    .section-title { color: #111; }
+    .def-box, .toc, .path-card, .study-card { background: #f8f9fa; border-color: #dee2e6; }
+    td, .blist li, .path-text, .study-find { color: #333; }
+    thead th { background: #e9ecef; color: #333; }
+    .fbox-blue, .fbox-teal, .fbox-orange, .fbox-red, .fbox-purple, .fbox-dark { background: #f0f4ff; color: #333; border-color: #aaa; }
+    footer { border-color: #dee2e6; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">10-Mark Structured Answer · Respiratory Medicine</div>
+  <h1>Immune Reconstitution <span>Inflammatory Syndrome</span> (IRIS)</h1>
+  <div class="hero-sub">HIV-TB Co-infection · ART-related Complication · Pulmonology</div>
+  <div class="hero-meta">
+    <span class="hero-badge">~1000 words</span>
+    <span class="hero-badge">12 sections</span>
+    <span class="hero-badge">4 landmark trials</span>
+    <span class="hero-badge">Flowcharts + Tables</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <div class="toc-grid">
+      <a href="#s1"><span class="toc-num">01</span> Definition</a>
+      <a href="#s7"><span class="toc-num">07</span> Clinical Manifestations</a>
+      <a href="#s2"><span class="toc-num">02</span> Epidemiology</a>
+      <a href="#s8"><span class="toc-num">08</span> Diagnosis & Exclusion Criteria</a>
+      <a href="#s3"><span class="toc-num">03</span> Pathogenesis</a>
+      <a href="#s9"><span class="toc-num">09</span> Management</a>
+      <a href="#s4"><span class="toc-num">04</span> Temporal Sequence (Flowchart)</a>
+      <a href="#s10"><span class="toc-num">10</span> Prevention</a>
+      <a href="#s5"><span class="toc-num">05</span> Types / Categories</a>
+      <a href="#s11"><span class="toc-num">11</span> Mnemonic Summary</a>
+      <a href="#s6"><span class="toc-num">06</span> Risk Factors</a>
+      <a href="#s12"><span class="toc-num">12</span> Landmark Studies</a>
+    </div>
+  </div>
+
+  <!-- 1. DEFINITION -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Definition</h2>
+    </div>
+    <p style="font-size:14px;color:var(--text3);margin-bottom:14px;">
+      IRIS is a paradoxical clinical deterioration arising from an <b style="color:var(--text)">exaggerated or dysregulated inflammatory response</b> following initiation of ART, directed against viable or non-viable antigens of opportunistic infections (or autoantigens), in the setting of immune reconstitution.
+    </p>
+    <div class="def-box">
+      <strong>Clinical Definition — Dhasmana et al., Drugs 2008</strong>
+      "Worsening of signs and symptoms due to known infections, <em>or</em> the development of disease due to occult infections that results from an inflammatory response by a re-invigorated immune system following the initiation of antiretroviral therapy."
+    </div>
+    <div class="def-box" style="border-left-color:var(--accent2);">
+      <strong>Programme Definition — NTEP / NACO (Working Definition)</strong>
+      "The worsening of signs and symptoms due to known infections, or the development of disease due to occult infections within <em>6 weeks to 6 months</em> after initiating ART, with an increase in CD4 count."
+    </div>
+  </div>
+
+  <!-- 2. EPIDEMIOLOGY -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Epidemiology</h2>
+    </div>
+    <ul class="blist">
+      <li>Incidence: <b>10–30%</b> of all patients initiating ART</li>
+      <li>Up to <b>25%</b> in patients with CD4 &lt;50 cells/mm³ at ART initiation</li>
+      <li>TB-IRIS accounts for <b>~30%</b> of all IRIS events globally</li>
+      <li>TB-IRIS reported in <b>7–43%</b> of HIV-TB coinfected patients starting ART</li>
+      <li>Occurs typically within <b>2–12 weeks</b> of ART; late IRIS up to 6 months</li>
+      <li>Mortality is generally low, but <b>CNS IRIS</b> (TB meningitis, Cryptococcal meningitis) carries significant morbidity and mortality</li>
+      <li>India bears ~9% of global HIV-associated TB burden; HIV-TB death rate <b>15–18%</b> under RNTCP</li>
+    </ul>
+  </div>
+
+  <!-- 3. PATHOGENESIS -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Pathogenesis</h2>
+    </div>
+    <p style="font-size:14px;color:var(--text3);margin-bottom:16px;">
+      ART causes rapid HIV viral load suppression → dramatic CD4+ T-cell recovery → reconstituted immune system mounts a vigorous inflammatory response against <b style="color:var(--text)">residual microbial antigens</b> (dead or dying organisms) that persisted during immunosuppression.
+    </p>
+    <div class="path-grid">
+      <div class="path-card blue">
+        <div class="path-icon">🔄</div>
+        <div class="path-label">Th1 Restoration</div>
+        <div class="path-text">Sustained IFN-γ, TNF-α, IL-2 response against MTB antigens after immune recovery</div>
+      </div>
+      <div class="path-card teal">
+        <div class="path-icon">⚡</div>
+        <div class="path-label">Cytokine Surge</div>
+        <div class="path-text">TNF-α surge, IL-6 elevation, reduced Treg function → uncontrolled inflammation</div>
+      </div>
+      <div class="path-card orange">
+        <div class="path-icon">🧲</div>
+        <div class="path-label">T-Cell Migration</div>
+        <div class="path-text">Massive trafficking of pathogen-specific T cells to sites of infection and inflammation</div>
+      </div>
+      <div class="path-card purple">
+        <div class="path-icon">🦠</div>
+        <div class="path-label">Antigen Burden</div>
+        <div class="path-text">High viable/non-viable antigen load at ART initiation drives exaggerated response</div>
+      </div>
+      <div class="path-card red">
+        <div class="path-icon">💥</div>
+        <div class="path-label">DTH Restoration</div>
+        <div class="path-text">Delayed-type hypersensitivity recovery → exacerbates granulomatous inflammation</div>
+      </div>
+      <div class="path-card blue" style="border-top-color:var(--accent4);">
+        <div class="path-icon">🔑</div>
+        <div class="path-label">CCR5 / CXCR4 Upregulation</div>
+        <div class="path-text">TB-induced chemokine receptor upregulation increases HIV replication locally, worsening immune dysregulation</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. FLOWCHART -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Temporal Sequence of IRIS — Flowchart</h2>
+    </div>
+    <div class="flow-wrap">
+      <div class="flow-title">Fig. 1 — Pathogenesis &amp; Development of IRIS in HIV-TB Co-infection</div>
+      <div class="flow">
+        <div class="fbox fbox-dark">🏥 HIV-infected patient diagnosed with active TB</div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-blue">Step 1: Start ANTI-TB TREATMENT (ATT) immediately<br><span style="font-size:12px;font-weight:400;opacity:.8">HRZE + Pyridoxine | Daily DOT | CBNAAT for confirmation</span></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-blue">Step 2: Initiate ART<br><span style="font-size:12px;font-weight:400;opacity:.8">CD4 &lt;50: within 2 weeks | CD4 ≥50: within 2–8 weeks | CNS TB: delay 8 weeks</span></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-teal">Immune Reconstitution Begins<br><span style="font-size:12px;font-weight:400;opacity:.8">CD4 count rises · HIV viral load falls · Th1 responses restore</span></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-orange">⚠ Exaggerated Inflammatory Response against MTB antigens<br><span style="font-size:12px;font-weight:400;opacity:.8">TNF-α surge · IFN-γ · IL-6 · T-cell trafficking to OI sites</span></div>
+        <div class="arrow" style="font-size:28px;color:var(--red);">↓</div>
+        <div class="fork">
+          <div class="fork-box fbox-red">
+            <div style="margin-bottom:6px">🔴 Paradoxical IRIS</div>
+            <div style="font-size:12px;font-weight:400;opacity:.85">Worsening of <em>known</em> TB after ATT+ART<br>e.g. enlarging nodes, new effusion, fever recurrence</div>
+          </div>
+          <div class="fork-box fbox-purple">
+            <div style="margin-bottom:6px">🟣 Unmasking IRIS</div>
+            <div style="font-size:12px;font-weight:400;opacity:.85"><em>Occult</em> TB uncovered after ART start<br>e.g. TB diagnosed weeks after ART initiation</div>
+          </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="arrow-label" style="margin-top:-4px;margin-bottom:4px">Typically within 2–12 weeks of ART (late IRIS: up to 6 months)</div>
+        <div class="fbox fbox-teal">✓ Management: Continue ART · Rule out new OI · Corticosteroids if moderate-severe</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. TYPES -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Types / Categories of IRIS</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>Category</th><th>Antigen Target</th><th>Classic Example</th><th>Timing</th><th>Severity</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Paradoxical IRIS</td><td>Dead / dying organisms</td><td>TB patient on ATT — worsening after ART initiation (fever, lymphadenopathy, pleural effusion)</td><td>2–12 weeks</td><td><span class="tag tag-orange">Moderate–High</span></td></tr>
+          <tr><td>Unmasking IRIS</td><td>Viable replicating antigens</td><td>Active TB / Cryptococcal meningitis diagnosed after ART is started (previously subclinical)</td><td>First 4–8 weeks</td><td><span class="tag tag-red">High</span></td></tr>
+          <tr><td>Autoimmune IRIS</td><td>Host (self) antigens</td><td>Graves' disease, SLE flare, autoimmune hepatitis</td><td>Variable</td><td><span class="tag tag-blue">Low–Moderate</span></td></tr>
+          <tr><td>Malignancy-related IRIS</td><td>Tumour / associated pathogen</td><td>Kaposi's sarcoma worsening (KSHV), lymphoma</td><td>Variable</td><td><span class="tag tag-purple">Variable</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-top:8px;">
+      Most serious paradoxical IRIS: <b style="color:var(--red)">TB meningitis IRIS</b> and <b style="color:var(--red)">Cryptococcal meningitis IRIS</b>
+    </p>
+  </div>
+
+  <!-- 6. RISK FACTORS -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Risk Factors for IRIS</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Risk Factor</th></tr></thead>
+        <tbody>
+          <tr><td>Immunological</td><td>Low CD4 count &lt;50–100 cells/mm³ at ART start · Low CD4:CD8 ratio · High HIV viral load at ART initiation</td></tr>
+          <tr><td>Virological</td><td>Rapid fall in HIV viral load after ART · Higher HIV RNA at initiation → more dramatic immune rebound</td></tr>
+          <tr><td>Demographic</td><td>Younger age · Male sex · Genetic susceptibility (IL-6, CXCL10, IL-1β gene polymorphisms)</td></tr>
+          <tr><td>OI-related</td><td>Short interval between OI treatment and ART start · High pathogen burden / disseminated OI · Subclinical (undiagnosed) OI at ART initiation · CNS TB or Cryptococcal meningitis (highest risk)</td></tr>
+          <tr><td>TB-specific</td><td>Severity of TB disease (high AFB smear grade) · Disseminated / miliary TB · High pre-ART TNF-α levels · Short ATT-to-ART interval</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 7. CLINICAL FEATURES -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Clinical Manifestations</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>OI / Condition</th><th>IRIS Clinical Features</th><th>Severity</th></tr></thead>
+        <tbody>
+          <tr><td>Tuberculosis (TB)</td><td>Fever recurrence, lymphadenopathy (suppurating / matted nodes), worsening pulmonary infiltrates, new/enlarging pleural effusion, pericardial effusion, splenic abscess, expanding CNS lesions (TB meningitis IRIS — most severe)</td><td><span class="tag tag-red">High</span></td></tr>
+          <tr><td>Cryptococcal meningitis</td><td>Raised intracranial pressure, worsening meningismus, new enhancing lesions, hearing loss. Most life-threatening IRIS form</td><td><span class="tag tag-red">Very High</span></td></tr>
+          <tr><td>MAC (M. avium complex)</td><td>Fever, cytopenias, lymphadenitis, hepatosplenomegaly, abdominal pain</td><td><span class="tag tag-orange">Moderate</span></td></tr>
+          <tr><td>CMV retinitis</td><td>Onset or worsening of uveitis / vitritis after resolution of CMV retinitis</td><td><span class="tag tag-orange">Moderate</span></td></tr>
+          <tr><td>PCP (Pneumocystis)</td><td>Progressive pneumonitis, organising pneumonia pattern after treatment</td><td><span class="tag tag-red">High</span></td></tr>
+          <tr><td>Herpes zoster / HSV</td><td>Florid, widespread, unusually severe cutaneous involvement</td><td><span class="tag tag-blue">Low–Moderate</span></td></tr>
+          <tr><td>BCG (in HIV-infected infants)</td><td>Localised (BCG site) or systemic BCG adenitis in settings with routine BCG immunisation</td><td><span class="tag tag-blue">Variable</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="def-box" style="border-left-color:var(--accent4);margin-top:14px;">
+      <strong style="color:var(--accent4);">Unusual features suggesting IRIS</strong>
+      Unexpected lymph node enlargement / suppuration · Exaggerated fever with negative cultures · Painful lesions · Granulomas / necrosis on histology · Progressive pneumonitis after PCP/PTB treatment · New cerebral space-occupying lesion · Uveitis after CMV retinitis resolution
+    </div>
+  </div>
+
+  <!-- 8. DIAGNOSIS -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Diagnosis &amp; INSHI 2008 Criteria</h2>
+    </div>
+    <p style="font-size:14px;color:var(--text3);margin-bottom:14px;">
+      IRIS is a <b style="color:var(--red)">diagnosis of exclusion</b>. The International Network for the Study of HIV-associated IRIS (INSHI, 2008) requires ALL of the following:
+    </p>
+    <div class="excl-grid">
+      <div class="excl-box must">
+        <h4>Must be Present</h4>
+        <ul>
+          <li>Temporal association: new event within 3 months (typically 2–12 wks) of ART initiation</li>
+          <li>Evidence of immune reconstitution: CD4 rising AND/OR viral load falling</li>
+          <li>Clinical features consistent with inflammatory / immune reaction</li>
+          <li>Response consistent with OI-specific IRIS pattern</li>
+        </ul>
+      </div>
+      <div class="excl-box excl">
+        <h4>Must be Excluded</h4>
+        <ul>
+          <li>New opportunistic infection (not related to pre-existing OI)</li>
+          <li>ART treatment failure (viral load should be falling)</li>
+          <li>Drug toxicity / ARV or ATT side effects</li>
+          <li>Expected natural disease progression</li>
+          <li>Non-adherence to OI therapy</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:13px;font-weight:600;color:var(--text);margin:14px 0 8px;">Key Investigations:</p>
+    <ul class="blist">
+      <li><b>CD4 count + HIV viral load</b> — confirm immune reconstitution (CD4 ↑, VL ↓)</li>
+      <li><b>Blood cultures, CSF analysis, culture of body fluids</b> — to rule out new/treatment-resistant OI</li>
+      <li><b>Imaging (CXR, CT thorax/abdomen/brain)</b> — assess new or worsening lesions</li>
+      <li><b>FNA / Histopathology of enlarged lymph nodes</b> — granulomatous inflammation without viable organisms; necrosis</li>
+      <li><b>CBNAAT / Xpert MTB/RIF on sputum or tissue</b> — confirms TB, detects rifampicin resistance</li>
+      <li><b>Serum CrAg (cryptococcal antigen)</b> — before ART initiation in patients with CD4 &lt;100 to screen for subclinical cryptococcosis</li>
+      <li><b>Inflammatory markers</b> — CRP, ESR, ferritin, LDH (elevated, non-specific)</li>
+    </ul>
+  </div>
+
+  <!-- 9. MANAGEMENT -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title">Management</h2>
+    </div>
+
+    <!-- Management flowchart -->
+    <div class="flow-wrap" style="margin-bottom:20px;">
+      <div class="flow-title">Fig. 2 — Management Algorithm for IRIS</div>
+      <div class="flow">
+        <div class="fbox fbox-red">IRIS Diagnosed</div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-blue">Continue ART — DO NOT STOP (rarely indicated to interrupt ART)</div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-dark">Assess Severity + Exclude new OI / Drug toxicity / Treatment failure</div>
+        <div class="arrow">↓</div>
+        <div class="fork">
+          <div class="fork-box" style="background:rgba(63,185,80,.1);border:1px solid rgba(63,185,80,.3);color:var(--teal);font-size:13px;">
+            <b>MILD</b><br><span style="font-weight:400;font-size:12px">NSAIDs (Ibuprofen 400 mg TDS)<br>Observation + Reassurance<br>Continue ATT + ART</span>
+          </div>
+          <div class="fork-box" style="background:rgba(255,166,87,.1);border:1px solid rgba(255,166,87,.3);color:var(--orange);font-size:13px;">
+            <b>MODERATE</b><br><span style="font-weight:400;font-size:12px">Prednisolone 1.5 mg/kg × 2 wks<br>then 0.75 mg/kg × 2 wks → taper<br>Drainage of abscesses</span>
+          </div>
+          <div class="fork-box" style="background:rgba(255,123,114,.1);border:1px solid rgba(255,123,114,.3);color:var(--red);font-size:13px;">
+            <b>SEVERE / CNS</b><br><span style="font-weight:400;font-size:12px">High-dose corticosteroids<br>ICU-level care<br>LP for raised ICP<br>Temporary ART cessation: ONLY if truly life-threatening</span>
+          </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-teal">Treat underlying OI vigorously throughout — antimicrobials reduce antigen load</div>
+      </div>
+    </div>
+
+    <div class="sev-grid">
+      <div class="sev-card sev-mild">
+        <div class="sev-head">🟢 Mild IRIS</div>
+        <div class="sev-body">
+          <ul>
+            <li>Localised symptoms, manageable fever</li>
+            <li>No organ dysfunction</li>
+            <li><b>NSAIDs:</b> Ibuprofen 400 mg TDS</li>
+            <li>Continue ART + ATT unchanged</li>
+            <li>Reassurance; observation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sev-card sev-mod">
+        <div class="sev-head">🟡 Moderate IRIS</div>
+        <div class="sev-body">
+          <ul>
+            <li>Worsening features, significant fever</li>
+            <li>Suppurating lymph nodes, moderate respiratory compromise</li>
+            <li><b>Prednisolone:</b> 1.5 mg/kg/day × 2 weeks, then 0.75 mg/kg/day × 2 weeks, then taper</li>
+            <li>Surgical/needle drainage of abscesses</li>
+            <li>Continue ART</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sev-card sev-severe">
+        <div class="sev-head">🔴 Severe / Life-threatening IRIS</div>
+        <div class="sev-body">
+          <ul>
+            <li>CNS IRIS (TB/Cryptococcal meningitis), respiratory/renal failure</li>
+            <li>High-dose IV corticosteroids</li>
+            <li>ICU-level supportive care</li>
+            <li>Lumbar puncture + CSF drainage for raised ICP</li>
+            <li>Temporary ART cessation: ONLY if no other option</li>
+            <li>Thalidomide: considered in refractory TB-IRIS (off-label)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="def-box" style="border-left-color:var(--accent4);margin-top:6px;">
+      <strong style="color:var(--accent4);">Key Principle</strong>
+      IRIS is generally <b>self-limiting</b>. ART interruption is rarely necessary and carries risk of HIV disease progression, viral rebound, and CD4 decline. The decision to interrupt must be weighed carefully against the risk of life-threatening complications.
+    </div>
+  </div>
+
+  <!-- 10. PREVENTION -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2 class="section-title">Prevention</h2>
+    </div>
+    <ul class="blist">
+      <li><b>Earlier HIV diagnosis</b> — initiate ART before CD4 falls below 200 cells/mm³</li>
+      <li><b>Intensified case finding (ICF)</b> — screen for TB, Cryptococcus, CMV <em>before</em> starting ART using 4-symptom complex (cough, fever, weight loss, night sweats)</li>
+      <li><b>Adequate OI treatment duration</b> — optimal treatment of OI for minimum recommended duration before ART start</li>
+      <li><b>Optimal ART timing:</b> CD4 &lt;50 → within 2 weeks; CD4 ≥50 → within 2–8 weeks; CNS TB → delay ART 8 weeks (to reduce CNS IRIS risk)</li>
+      <li><b>Prophylactic corticosteroids</b> — In high-risk patients (CD4 &lt;100, ART within 30 days of ATT): Prednisone 40 mg/day × 2 weeks then 20 mg/day × 2 weeks reduces IRIS hospitalisations <span style="color:var(--accent);font-family:var(--mono-font);font-size:12px">[Meintjes et al., NEJM 2010]</span></li>
+      <li><b>Serum CrAg screening</b> — screen and treat subclinical cryptococcal disease before ART initiation in patients with CD4 &lt;100 cells/mm³</li>
+      <li><b>BCG vaccine</b> — withhold from symptomatic HIV-infected children (WHO recommendation)</li>
+    </ul>
+  </div>
+
+  <!-- 11. MNEMONIC -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2 class="section-title">Summary Mnemonic — IRIS</h2>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-letter">I</div>
+      <div class="mnemonic-text"><b style="color:var(--text);margin-right:8px">Immune reconstitution</b> is the driver — CD4 recovery + VL suppression after ART unleashes disproportionate inflammation</div>
+      <div class="mnemonic-letter">R</div>
+      <div class="mnemonic-text"><b style="color:var(--text);margin-right:8px">Response is inflammatory</b> — directed against <em>viable or non-viable</em> antigens of OIs; Th1/TNF-α mediated</div>
+      <div class="mnemonic-letter">I</div>
+      <div class="mnemonic-text"><b style="color:var(--text);margin-right:8px">Incidence:</b> 10–30% all ART initiators; up to 25% with CD4 &lt;50; 7–43% in HIV-TB co-infection</div>
+      <div class="mnemonic-letter">S</div>
+      <div class="mnemonic-text"><b style="color:var(--text);margin-right:8px">Self-limiting</b> in most cases — continue ART; corticosteroids for moderate-severe; interrupt ART only if life-threatening</div>
+    </div>
+  </div>
+
+  <!-- 12. LANDMARK STUDIES -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2 class="section-title">Landmark Studies</h2>
+    </div>
+    <div class="study-grid">
+      <div class="study-card">
+        <div class="study-name">SAPIT Trial</div>
+        <div class="study-ref">NEJM 2010 | South Africa</div>
+        <div class="study-pop">HIV-TB co-infected adults (n=642)</div>
+        <div class="study-find">Early integrated ART (within 4 weeks of ATT) significantly reduced mortality vs. sequential therapy. IRIS was more frequent but manageable. Established ART must accompany TB treatment.</div>
+      </div>
+      <div class="study-card">
+        <div class="study-name">CAMELIA Trial</div>
+        <div class="study-ref">NEJM 2011 | Cambodia</div>
+        <div class="study-pop">HIV-TB (n=661), CD4 median 25 cells/mm³</div>
+        <div class="study-find">ART at 2 weeks vs 8 weeks after ATT: <b>2-week arm had significantly lower mortality (HR 0.62, p=0.006)</b>. IRIS more common in 2-week arm. Established early ART reduces AIDS/death in severely immunosuppressed patients.</div>
+      </div>
+      <div class="study-card">
+        <div class="study-name">Meintjes et al.</div>
+        <div class="study-ref">NEJM 2010 | South Africa</div>
+        <div class="study-pop">TB-IRIS, randomised (n=110)</div>
+        <div class="study-find">Prednisolone 1.5 mg/kg × 2 wks then 0.75 mg/kg × 2 wks significantly <b>reduced days hospitalised, therapeutic procedures, and IRIS severity</b> vs. placebo. Established steroid regimen for moderate-severe TB-IRIS.</div>
+      </div>
+      <div class="study-card">
+        <div class="study-name">COAT Trial</div>
+        <div class="study-ref">Lancet ID 2014 | Uganda/S.Africa</div>
+        <div class="study-pop">Cryptococcal meningitis + HIV (n=177)</div>
+        <div class="study-find">Deferring ART 5 weeks after antifungal therapy <b>reduced Cryptococcal IRIS and mortality</b> compared to early ART (at 1–2 weeks). Established the practice of deferring ART in cryptococcal meningitis.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <div>References: Dhasmana DJ et al. Drugs 2008;68(2):191–208 · Meintjes G et al. NEJM 2010 · Abdool Karim SS et al. NEJM 2010 (SAPIT) · Blanc FX et al. NEJM 2011 (CAMELIA) · Boulware DR et al. Lancet Infect Dis 2014 (COAT)</div>
+  <div style="margin-top:6px;">Satyasri S & Kiran LH, Textbook of Tuberculosis Chs. 20–21 · Rewari BB et al., TB &amp; NTM Diseases Ch. 35 · WHO/NACO ART Guidelines 2020 · NTEP India</div>
+  <div style="margin-top:6px;color:var(--border)">Respiratory Medicine · 10-Mark Structured Answer</div>
+</footer>
+
+</body>
+</html>
