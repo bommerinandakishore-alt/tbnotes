@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Endobronchial Tuberculosis – 10 Marks</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --surface: #ffffff;
+    --surface2: #f0ece4;
+    --border: #d6cfc4;
+    --accent: #8b2a2a;
+    --accent2: #c0392b;
+    --accent3: #1a3a4a;
+    --text: #1c1a17;
+    --text2: #4a4540;
+    --text3: #7a7068;
+    --green: #1e5631;
+    --green-light: #eaf4ec;
+    --blue: #1a3a5c;
+    --blue-light: #e8f0f7;
+    --yellow: #7a5c00;
+    --yellow-light: #fdf6e3;
+    --red-light: #fdf0f0;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; font-size: 11pt; }
+    .page-header { background: #8b2a2a !important; }
+    .section { break-inside: avoid; }
+    .flowchart { break-inside: avoid; }
+  }
+
+  /* HEADER */
+  .page-header {
+    background: var(--accent);
+    color: white;
+    padding: 28px 40px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 4px solid #6b1a1a;
+  }
+  .page-header h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+  .page-header .meta {
+    text-align: right;
+    font-size: 0.8rem;
+    opacity: 0.88;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+
+  /* WRAPPER */
+  .wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 28px 32px 48px;
+  }
+
+  /* DEFINITION BOX */
+  .definition-box {
+    background: var(--accent3);
+    color: white;
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin-bottom: 24px;
+    border-left: 5px solid #f0c040;
+  }
+  .definition-box .def-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: #f0c040;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .definition-box p {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  /* SECTION */
+  .section {
+    background: var(--surface);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .section-header {
+    background: var(--accent3);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-header .snum {
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .section-body {
+    padding: 16px 20px;
+  }
+
+  /* BULLETS */
+  ul.bullets {
+    list-style: none;
+    padding: 0;
+  }
+  ul.bullets li {
+    padding: 3px 0 3px 20px;
+    position: relative;
+    color: var(--text2);
+    font-size: 0.88rem;
+  }
+  ul.bullets li::before {
+    content: "▸";
+    color: var(--accent);
+    position: absolute;
+    left: 4px;
+    font-size: 0.8rem;
+  }
+  ul.bullets li strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+  ul.bullets.nested li {
+    padding-left: 32px;
+  }
+  ul.bullets.nested li::before {
+    content: "◦";
+    left: 18px;
+    color: var(--text3);
+  }
+
+  /* TWO-COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 10px;
+  }
+  .col-card {
+    background: var(--surface2);
+    border-radius: 6px;
+    padding: 12px 14px;
+    border-left: 3px solid var(--accent);
+  }
+  .col-card.green { border-left-color: var(--green); background: var(--green-light); }
+  .col-card.blue  { border-left-color: var(--blue);  background: var(--blue-light); }
+  .col-card h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    color: var(--accent3);
+  }
+  .col-card.green h4 { color: var(--green); }
+  .col-card.blue  h4 { color: var(--blue); }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-top: 10px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83rem;
+  }
+  thead tr {
+    background: var(--accent3);
+    color: white;
+  }
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+  tbody tr:nth-child(even) { background: var(--surface2); }
+  tbody tr:hover { background: #e8e4dc; }
+  tbody td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text2);
+  }
+  tbody td:first-child { font-weight: 600; color: var(--text); }
+  .tag-good  { background: #d4edda; color: #155724; border-radius: 4px; padding: 1px 7px; font-size: 0.75rem; white-space: nowrap; }
+  .tag-bad   { background: #f8d7da; color: #721c24; border-radius: 4px; padding: 1px 7px; font-size: 0.75rem; white-space: nowrap; }
+  .tag-mod   { background: #fff3cd; color: #856404; border-radius: 4px; padding: 1px 7px; font-size: 0.75rem; white-space: nowrap; }
+
+  /* FLOWCHART */
+  .flowchart {
+    margin: 14px 0 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .flow-box {
+    background: var(--accent3);
+    color: white;
+    border-radius: 7px;
+    padding: 9px 20px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-align: center;
+    min-width: 260px;
+    max-width: 340px;
+    border: 2px solid transparent;
+    line-height: 1.4;
+  }
+  .flow-box.red    { background: var(--accent); }
+  .flow-box.green  { background: var(--green); }
+  .flow-box.yellow { background: #7a5c00; }
+  .flow-box.light  { background: var(--surface2); color: var(--text); border: 2px solid var(--border); }
+  .flow-box.blue   { background: var(--blue); }
+  .flow-arrow {
+    font-size: 1.1rem;
+    color: var(--text3);
+    line-height: 1.2;
+    margin: 0;
+  }
+  .flow-label {
+    font-size: 0.72rem;
+    color: var(--text3);
+    font-style: italic;
+    margin-top: -2px;
+    text-align: center;
+  }
+  .flow-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 6px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .flow-row .flow-box {
+    min-width: 130px;
+    max-width: 180px;
+    font-size: 0.78rem;
+  }
+  .flow-split {
+    font-size: 0.85rem;
+    color: var(--text3);
+    margin: 0 4px;
+    padding-top: 10px;
+  }
+
+  /* HIGHLIGHT NOTE */
+  .note {
+    background: var(--yellow-light);
+    border-left: 4px solid #c8a000;
+    border-radius: 0 6px 6px 0;
+    padding: 9px 14px;
+    font-size: 0.83rem;
+    color: var(--yellow);
+    margin: 10px 0;
+  }
+  .note strong { font-weight: 700; }
+
+  .alert {
+    background: var(--red-light);
+    border-left: 4px solid var(--accent2);
+    border-radius: 0 6px 6px 0;
+    padding: 9px 14px;
+    font-size: 0.83rem;
+    color: var(--accent);
+    margin: 10px 0;
+  }
+
+  /* MNEMONICS */
+  .mnemonic {
+    background: linear-gradient(135deg, #1a3a4a 0%, #2d6080 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 10px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+  }
+  .mnemonic .title { font-weight: 700; color: #f0c040; margin-bottom: 6px; font-size: 0.78rem; letter-spacing: 0.1em; }
+
+  /* REFS */
+  .refs {
+    font-size: 0.75rem;
+    color: var(--text3);
+    font-style: italic;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+  }
+
+  /* SUBTITLE */
+  .sub-head {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 12px 0 5px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    color: var(--text3);
+    font-size: 0.75rem;
+    margin-top: 20px;
+    padding: 12px;
+    border-top: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div>
+    <div class="badge">RESPIRATORY MEDICINE · 10-MARK ANSWER</div>
+    <h1>Endobronchial Tuberculosis</h1>
+  </div>
+  <div class="meta">
+    Dhillon &amp; Hanania (Textbook of TB)<br>
+    Joshua &amp; Roopa (Sharma's Textbook)<br>
+    Chung &amp; Lee, <em>Chest</em> 2000;117:385–92
+  </div>
+</div>
+
+<div class="wrapper">
+
+  <!-- DEFINITION -->
+  <div class="definition-box">
+    <div class="def-label">▶ DEFINITION</div>
+    <p>Endobronchial tuberculosis (EBTB) is defined as <strong>tuberculous infection of the tracheobronchial tree with microbial and histopathological evidence</strong>, involving the trachea, main bronchi, segmental and subsegmental airways. First described by Richard Morton in 1689.</p>
+  </div>
+
+  <!-- EPIDEMIOLOGY -->
+  <div class="section">
+    <div class="section-header"><div class="snum">1</div><h2>Epidemiology</h2></div>
+    <div class="section-body">
+      <ul class="bullets">
+        <li><strong>Prevalence:</strong> Not exactly known; up to <strong>40%</strong> of active TB patients at autopsy (range 3–72%)</li>
+        <li><strong>Bronchoscopic studies:</strong> 10–20% of active TB patients; lower in recent studies due to timely chemotherapy</li>
+        <li><strong>Non-endemic areas:</strong> Prevalence as low as 0.18%</li>
+        <li><strong>Age:</strong> Predominantly 21–40 years; second peak in elderly (reactivation/reinfection)</li>
+        <li><strong>Sex:</strong> Female preponderance — women suppress cough due to sociocultural/cosmetic reasons; female bronchi are structurally narrower</li>
+        <li><strong>Indian data:</strong> 9.4% prevalence in 85 Indian children with active TB (bronchoscopic study); significantly higher prevalence of associated anthracofibrosis in Indian subcontinent immigrants vs other Asians (50% vs 3.7%, p&lt;0.001)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PATHOPHYSIOLOGY -->
+  <div class="section">
+    <div class="section-header"><div class="snum">2</div><h2>Pathophysiology — Mechanisms of Spread</h2></div>
+    <div class="section-body">
+
+      <div class="mnemonic">
+        <div class="title">⚡ MNEMONIC — "DILPH"</div>
+        <strong>D</strong>irect extension from adjacent parenchyma &nbsp;|&nbsp;
+        <strong>I</strong>mplantation from infected sputum &nbsp;|&nbsp;
+        <strong>L</strong>ymphatic spread (retrograde) &nbsp;|&nbsp;
+        <strong>P</strong>rimary TB (lymph node erosion) &nbsp;|&nbsp;
+        <strong>H</strong>aematogenous dissemination
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Mechanism</th><th>Details</th><th>Frequency</th></tr></thead>
+          <tbody>
+            <tr><td>Direct Extension</td><td>Adjacent diseased bronchi involved; ulceration near extensive parenchymal TB</td><td>Common</td></tr>
+            <tr><td>Sputum Implantation</td><td>Organisms from cavities deposited on mucosal wall; endobronchial disease on wall opposite diseased lobe</td><td>Common</td></tr>
+            <tr><td>Lymph Node Erosion</td><td>Primary TB mechanism in <strong>children</strong>; lymph node erodes into bronchus; bronchial wall inflammation → mucosal spread</td><td>Common in children</td></tr>
+            <tr><td>Lymphatic Spread</td><td>Retrograde via peribronchial lymphatics (submucosal → adventitia); peribronchial infection seen histologically</td><td>Uncommon</td></tr>
+            <tr><td>Haematogenous</td><td>Rare; seen in miliary TB</td><td>Rare</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-head">Pathogenesis — Sequential Progression</div>
+      <div class="flowchart">
+        <div class="flow-box blue">Lymphocytic infiltration of mucosa<br><small>→ erythema, oedema (earliest sign on bronchoscopy)</small></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box">Submucosal tubercle formation<br><small>→ granularity + partial stenosis (granular / oedematous-hyperaemic type)</small></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box red">Caseous necrosis + TB granuloma at mucosal surface<br><small>→ Actively caseating type</small></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box">Inflammation progresses through mucosa → Ulcer<br><small>→ Ulcerative type</small></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box yellow">Ulcer → Hyperplastic inflammatory polyps<br><small>→ Tumorous type</small></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box green">Healing by fibrosis → Fibrostenosis<br><small>→ Fibrostenotic type (irreversible)</small></div>
+      </div>
+
+      <div class="sub-head">Immunopathogenesis</div>
+      <ul class="bullets">
+        <li>Elevated <strong>IFN-γ</strong> and <strong>TGF-β</strong> levels in bronchial lavage fluid → pathogenesis and progression of EBTB</li>
+        <li>Lowered initial TGF-β + post-treatment TGF-β changes → implicated in <strong>bronchostenosis</strong></li>
+        <li>Increased <strong>metalloproteinase-1 activity</strong> → increased risk of fibrosis and stenosis</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CLINICAL FEATURES -->
+  <div class="section">
+    <div class="section-header"><div class="snum">3</div><h2>Clinical Features</h2></div>
+    <div class="section-body">
+      <div class="two-col">
+        <div class="col-card blue">
+          <h4>Symptoms</h4>
+          <ul class="bullets">
+            <li><strong>Barking cough</strong> — most common; unresponsive to antitussives</li>
+            <li>Dyspnoea (often with atelectasis)</li>
+            <li>Haemoptysis (occasional; rarely massive)</li>
+            <li>Chest pain (sternal/parasternal — ruptured node)</li>
+            <li>Wheeze / stridor — features of bronchostenosis</li>
+            <li>Fever (low grade → marked with progression)</li>
+            <li>Anorexia, weight loss, night sweats (may be minimal)</li>
+            <li>Bronchorrhoea (&gt;500 mL/day) — rare</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <h4>Signs</h4>
+          <ul class="bullets">
+            <li>Diminished breath sounds</li>
+            <li>Localised <strong>fixed wheeze</strong> — low-pitched, constant, same area</li>
+            <li>Rhonchi</li>
+            <li>May disappear as airway progressively narrows</li>
+          </ul>
+          <h4 style="margin-top:10px">Mimics</h4>
+          <ul class="bullets">
+            <li>Bronchial asthma</li>
+            <li>Foreign body aspiration (children)</li>
+            <li>Lung cancer (tumorous type)</li>
+            <li>Pneumonia / non-resolving pneumonia</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note"><strong>Note:</strong> Symptoms may start <em>years</em> after diagnosis and treatment of pulmonary TB (due to post-stenotic disease). Acute presentations include respiratory failure requiring mechanical ventilation.</div>
+    </div>
+  </div>
+
+  <!-- DIAGNOSIS -->
+  <div class="section">
+    <div class="section-header"><div class="snum">4</div><h2>Diagnosis</h2></div>
+    <div class="section-body">
+
+      <div class="sub-head">A. Sputum Examination</div>
+      <ul class="bullets">
+        <li>AFB smear yield: <strong>low (15–20%)</strong></li>
+        <li>Reason: mucus entrapment by proximal granulation tissue + lack of mucosal ulceration</li>
+        <li><strong>Negative smear does NOT exclude EBTB</strong></li>
+      </ul>
+
+      <div class="sub-head">B. Chest Radiograph</div>
+      <ul class="bullets">
+        <li><strong>Normal in 10–20%</strong> of patients</li>
+        <li>Patchy infiltrates, collapse (25–35%), consolidation (35–60%)</li>
+        <li>Hyperinflation, cavities, pleural effusion, miliary pattern, mediastinal lymphadenopathy</li>
+      </ul>
+
+      <div class="sub-head">C. HRCT Chest</div>
+      <ul class="bullets">
+        <li>More sensitive than plain CT; endobronchial involvement detected in up to <strong>95–97%</strong> with HRCT</li>
+        <li>Small airway involvement:
+          <ul class="bullets nested">
+            <li><strong>Centrilobular nodules</strong> (2–4 mm) — caseous material in terminal bronchioles</li>
+            <li><strong>Tree-in-bud pattern</strong> — branching linear structures; stalk = last-order bronchus; tufts = alveolar ducts</li>
+            <li>Poorly defined nodules, bronchial wall thickening</li>
+          </ul>
+        </li>
+        <li>Large/medium airways: circumferential luminal narrowing, peribronchial cuff, mediastinal nodes</li>
+        <li>CT cannot reliably differentiate endobronchial from submucosal or extrinsic lesion</li>
+        <li>Advantage: reveals airway <em>beyond</em> stenosis and length of stenosis — complements bronchoscopy</li>
+      </ul>
+
+      <div class="sub-head">D. Spirometry</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Pattern</th><th>Frequency</th><th>Reason</th></tr></thead>
+          <tbody>
+            <tr><td>Restrictive</td><td><strong>47%</strong> (most common)</td><td>Complete obstruction / parenchymal fibrosis</td></tr>
+            <tr><td>Normal</td><td>23.5%</td><td>—</td></tr>
+            <tr><td>Mixed</td><td>23.5%</td><td>—</td></tr>
+            <tr><td>Obstructive</td><td>5.9%</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="bullets" style="margin-top:6px">
+        <li>Flow-volume loop (UAO pattern) — <strong>rarely seen</strong> in EBTB</li>
+        <li>No bronchial hyperreactivity to histamine (unlike asthma) — important differentiator</li>
+      </ul>
+
+      <div class="sub-head">E. Bronchoscopy — Gold Standard</div>
+      <div class="alert"><strong>Bronchoscopy is the gold standard.</strong> Diagnosis can be missed in 10–20% of patients with normal CXR if bronchoscopy is not done. Airborne precautions are essential.</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Chung &amp; Lee Type</th><th>Bronchoscopic Appearance</th><th>Prognosis (Fibrostenosis)</th></tr></thead>
+          <tbody>
+            <tr><td>1. Non-specific Bronchitic</td><td>Mild mucosal swelling ± hyperaemia</td><td><span class="tag-good">Good — resolves in 2 months</span></td></tr>
+            <tr><td>2. Granular</td><td>Scattered grains of boiled rice; severe inflammation</td><td><span class="tag-good">20% fibrostenosis</span></td></tr>
+            <tr><td>3. Oedematous-Hyperaemic</td><td>Severe mucosal swelling + hyperaemia → lumen narrowing</td><td><span class="tag-bad">60% fibrostenosis; 30% complete obstruction</span></td></tr>
+            <tr><td>4. Actively Caseating</td><td>Swollen + hyperaemic mucosa with whitish cheese-like material (<strong>most common type</strong>)</td><td><span class="tag-bad">65% fibrostenosis</span></td></tr>
+            <tr><td>5. Ulcerative</td><td>Ulcers in tracheobronchial tree</td><td><span class="tag-good">Good — resolves in 3 months</span></td></tr>
+            <tr><td>6. Fibrostenotic</td><td>Marked narrowing due to fibrosis; no response to treatment</td><td><span class="tag-bad">Irreversible; progressive</span></td></tr>
+            <tr><td>7. Tumorous</td><td>Endobronchial mass + caseous surface; mimics carcinoma</td><td><span class="tag-bad">70% fibrostenosis; most unpredictable</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note" style="margin-top:8px">
+        <strong>Samples at bronchoscopy:</strong> Endobronchial biopsy (most reliable) + bronchial brushings (increases yield) + washings. Cryobiopsy provides larger samples.
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPLICATIONS -->
+  <div class="section">
+    <div class="section-header"><div class="snum">5</div><h2>Complications</h2></div>
+    <div class="section-body">
+      <ul class="bullets">
+        <li><strong>Bronchostenosis</strong> — most significant complication; develops in <strong>50–90%</strong> despite effective therapy</li>
+        <li><strong>Bronchiectasis</strong> — secondary to parenchymal fibrosis + central stenosis with distal dilatation</li>
+        <li>Atelectasis / lobar collapse; post-obstructive pneumonia; lung abscess</li>
+        <li>Obstructive emphysema; tension pneumothorax (one-way valve mechanism)</li>
+        <li>Tracheal stenosis → respiratory failure, difficult intubation, tracheostomy, death by suffocation</li>
+        <li>Pseudomembranous tracheobronchial aspergillosis on stenotic area (rare)</li>
+        <li>Expectoration of bronchial cartilages; bronchial fistula (rare)</li>
+        <li>Concomitant laryngeal TB (60%) and intestinal TB (82%) — in pre-chemotherapy era</li>
+      </ul>
+      <div class="note"><strong>Risk factors for bronchostenosis progression:</strong> Age &gt;45 years; anti-TB treatment initiated &gt;90 days after symptoms; tumorous/oedematous-hyperaemic type at bronchoscopy.</div>
+    </div>
+  </div>
+
+  <!-- TREATMENT FLOWCHART -->
+  <div class="section">
+    <div class="section-header"><div class="snum">6</div><h2>Treatment</h2></div>
+    <div class="section-body">
+
+      <div class="flowchart">
+        <div class="flow-box blue">Diagnosis of EBTB confirmed (Bronchoscopy + Biopsy)</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box">Anti-TB Chemotherapy<br><small>2HRZE / 4HR (same as pulmonary TB) — cornerstone of treatment</small></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-label">± Adjunctive Corticosteroids (controversial; may reduce bronchostenosis risk)</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box red">Assess for Bronchostenosis<br><small>Refractory cough, localised wheeze, worsening dyspnoea, atelectasis on CXR</small></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-row">
+          <div class="flow-box green" style="background:#1e5631">Bronchoscopic Interventions<br><small>Balloon dilatation, APC, Laser (Nd-YAG), Cryotherapy, Stenting</small></div>
+          <div class="flow-split">OR</div>
+          <div class="flow-box yellow">Surgery<br><small>Sleeve resection, Lobectomy, Pneumonectomy (last resort)</small></div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box">Multidisciplinary Follow-up<br><small>Interventional Pulmonologist + Radiologist + Thoracic Surgeon + TB Specialist</small></div>
+      </div>
+
+      <div class="sub-head">Bronchoscopic Modalities for Stenosis</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Modality</th><th>Mechanism</th><th>Key Points</th></tr></thead>
+          <tbody>
+            <tr><td>Balloon Bronchoplasty</td><td>Radial dilatation force</td><td>Less mucosal trauma than rigid scope; best for short segments; low long-term patency → repeat sessions needed</td></tr>
+            <tr><td>Rigid Bronchoscope</td><td>Mechanical coring / bougienage</td><td>Emergency airway securing; shearing force causes more trauma</td></tr>
+            <tr><td>Electrocautery / APC</td><td>Thermal tissue destruction</td><td>APC: minimal perforation risk, good haemostasis; FiO₂ &lt;40%; caution with pacemakers</td></tr>
+            <tr><td>Nd-YAG Laser</td><td>Thermal vaporisation + coagulation</td><td>Preferred laser; most evidence; FiO₂ &lt;40%; protective eyewear required</td></tr>
+            <tr><td>Cryotherapy</td><td>Freeze-thaw cycles; cryoresistant cartilage</td><td>Safe; no airway fire risk; effect slow; repeat procedures needed</td></tr>
+            <tr><td>Silicone Stent (Dumon)</td><td>Mechanical airway patency</td><td><strong>Preferred stent</strong> in EBTB; requires rigid bronchoscopy; higher migration rate; easier removal</td></tr>
+            <tr><td>Metal Stent</td><td>—</td><td><strong>AVOID in benign stenosis</strong> — FDA black-box warning 2005; granulation ingrowth; difficult removal</td></tr>
+            <tr><td>EBUS (radial probe)</td><td>Airway wall visualisation</td><td>Assesses cartilage destruction → guides stent decision</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-head">Corticosteroids</div>
+      <ul class="bullets">
+        <li>Used empirically with anti-TB drugs to prevent bronchostenosis — evidence remains controversial</li>
+        <li>Lee et al: suppress barking cough but may not alter disease course or prevent fibrostenosis</li>
+        <li>A randomised trial in adults failed to show benefit (RCT evidence negative)</li>
+        <li>May be useful in: children with lymph node TB causing bronchial obstruction; hypersensitivity reactions to anti-TB drugs</li>
+        <li><strong>Current recommendation: No routine use of corticosteroids in EBTB</strong></li>
+      </ul>
+
+      <div class="sub-head">Surgery</div>
+      <ul class="bullets">
+        <li>Performed when disease is no longer active</li>
+        <li>Lobar / segmental stenosis → <strong>Lobectomy</strong></li>
+        <li>Trachea / main-stem stenosis → <strong>Sleeve resection (bronchoplasty)</strong></li>
+        <li>Extensive damage / obliterated mainstem → <strong>Pneumonectomy</strong> (last resort)</li>
+        <li>Modern surgical techniques: very low mortality; restenosis at anastomosis → repeat bronchoscopic dilatation may be needed</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SPECIAL SITUATIONS -->
+  <div class="section">
+    <div class="section-header"><div class="snum">7</div><h2>Special Situations</h2></div>
+    <div class="section-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Situation</th><th>Key Points</th></tr></thead>
+          <tbody>
+            <tr><td>Children</td><td>Part of primary TB spectrum; 40–60% incidence (mediastinal LN involvement); most common finding = extrinsic bronchial compression; gastric lavage + bronchoscopy improves yield; mimics foreign body aspiration</td></tr>
+            <tr><td>Elderly</td><td>≥15% of elderly pulmonary TB; often diagnosed as lung cancer workup; 60% develop bronchostenosis; 75% of right middle lobe syndrome due to EBTB are elderly</td></tr>
+            <tr><td>HIV Infection</td><td>Tumorous form more common (lymph node erosion); progressive bronchostenosis not commonly reported; DD: Kaposi's sarcoma, bacillary angiomatosis, lymphoma</td></tr>
+            <tr><td>Pregnancy</td><td>Hormonal changes → airway oedema → unmask/worsen stenosis; Heliox useful (laminar flow, ↓ airway resistance); airway interventions preferably early in pregnancy</td></tr>
+            <tr><td>IRIS</td><td>Paradoxical worsening after ART initiation; mediastinal LN enlargement eroding into bronchus; treatment: NSAIDs / steroids</td></tr>
+            <tr><td>Lower Lung Field TB</td><td>Endobronchial involvement in up to 75%; low threshold for bronchoscopy</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIFFERENTIAL DIAGNOSIS -->
+  <div class="section">
+    <div class="section-header"><div class="snum">8</div><h2>Differential Diagnosis</h2></div>
+    <div class="section-body">
+      <div class="two-col">
+        <div class="col-card blue">
+          <h4>Endobronchial Mass</h4>
+          <ul class="bullets">
+            <li>Bronchogenic carcinoma</li>
+            <li>Carcinoid tumour</li>
+            <li>Atypical mycobacteria (NTM)</li>
+            <li>Sarcoidosis</li>
+            <li>Actinomycosis</li>
+            <li>Papillomatosis</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <h4>Airway Stenosis</h4>
+          <ul class="bullets">
+            <li><em>Focal:</em> Post-intubation, Crohn's disease, Behçet's syndrome</li>
+            <li><em>Diffuse:</em> Wegener's granulomatosis, relapsing polychondritis, tracheobronchopathia osteochondroplastica, amyloidosis, rhinoscleroma</li>
+            <li>Anthracofibrosis — spares central airways, multiple lobar/segmental bronchi</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note" style="margin-top:10px"><strong>Anthracofibrosis:</strong> Non-smoking elderly women, biomass fuel exposure; can co-exist with EBTB; anthracotic pigmentation on bronchoscopy → 60% have active TB (Chung et al)</div>
+    </div>
+  </div>
+
+  <!-- SUMMARY TABLE -->
+  <div class="section">
+    <div class="section-header"><div class="snum">9</div><h2>Quick Revision Summary</h2></div>
+    <div class="section-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Feature</th><th>Key Fact</th></tr></thead>
+          <tbody>
+            <tr><td>Definition</td><td>TB infection of tracheobronchial tree with microbial + histopathological evidence</td></tr>
+            <tr><td>Prevalence</td><td>Up to 40% autopsy; 10–20% bronchoscopy studies</td></tr>
+            <tr><td>Common age/sex</td><td>21–40 years; females &gt; males</td></tr>
+            <tr><td>Most common symptom</td><td>Barking cough</td></tr>
+            <tr><td>Most common spirometry</td><td>Restrictive (47%)</td></tr>
+            <tr><td>Gold standard diagnosis</td><td>Bronchoscopy + biopsy</td></tr>
+            <tr><td>Most common bronchoscopic type</td><td>Actively caseating</td></tr>
+            <tr><td>Worst prognosis type</td><td>Tumorous (70% fibrostenosis)</td></tr>
+            <tr><td>Sputum AFB yield</td><td>Only 15–20%</td></tr>
+            <tr><td>Most common complication</td><td>Bronchostenosis (50–90% despite treatment)</td></tr>
+            <tr><td>Preferred stent</td><td>Silicone (Dumon) stent — avoid metal stents</td></tr>
+            <tr><td>CT sign</td><td>Tree-in-bud pattern (small airways); circumferential narrowing (large airways)</td></tr>
+            <tr><td>Corticosteroids</td><td>No routine use; benefit unproven in adults</td></tr>
+            <tr><td>Surgery — last resort</td><td>Pneumonectomy for extensive damage</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="refs">
+    <strong>References:</strong> Dhillon SS, Hanania NA. Endobronchial Tuberculosis. In: Textbook of Tuberculosis and Nontuberculous Mycobacterial Diseases. Chapter 12. | Joshua S, Roopa A. Endobronchial Tuberculosis. In: Sharma's Textbook of Tuberculosis. Chapter 17. | Chung HS, Lee JH. Bronchoscopic assessment of the evolution of endobronchial tuberculosis. <em>Chest</em> 2000;117:385–92. | Lee JH, Chung HS. Bronchoscopic, radiologic and pulmonary function evaluation. <em>Respirology</em> 2000;5:411–7.
+  </div>
+
+  <div class="footer">RESPIRATORY MEDICINE · STRUCTURED 10-MARK ANSWER · EBTB</div>
+</div>
+
+</body>
+</html>
